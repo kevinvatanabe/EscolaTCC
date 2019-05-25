@@ -1,6 +1,6 @@
 using System;
 
-namespace EscolaTCC.Models
+namespace EscolaTCC.Models.ViewsModels
 {
     public class ErrorViewModel
     {
