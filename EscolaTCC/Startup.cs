@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using EscolaTCC.Models;
 
+
 namespace EscolaTCC
 {
     public class Startup
@@ -36,8 +37,11 @@ namespace EscolaTCC
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            //injeção de depencias
+            //adddbcontext recebe como argumento uma função (delegate)
             services.AddDbContext<EscolaTCCContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("EscolaTCCContext")));
+                  options.UseMySql(Configuration.GetConnectionString("EscolaTCCContext"), 
+                  builder => builder.MigrationsAssembly("EscolaTCC")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
