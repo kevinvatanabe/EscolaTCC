@@ -25,14 +25,16 @@ namespace EscolaTCC.Models
         [Display(Name = "CPF")]
         public int CPF_Bene     { get; set; }
 
+        [Display(Name = "Nome do Pai")]
         //Informações relativas ao Responsável
-        //Acredito ser informação repetida
         public String NM_Pai    { get; set; }
 
+        [Display(Name = "Nome da Mãe")]
         public String NM_Mae    { get; set; }
 
         //Chave Estrangeira
-        public int CD_Resp      { get; set; }
+        //Associação
+        public Responsavel CD_Resp  { get; set; }
 
         //CRUD
         public void CadastroAluno(Aluno aluno)

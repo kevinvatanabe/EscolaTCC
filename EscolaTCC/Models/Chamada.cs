@@ -11,15 +11,19 @@ namespace EscolaTCC.Models
         [Key]
         public int cdChamada { get; set; }
 
+        //Não acho que seja booleano
+        [Display(Name = "Falta do dia")]
         public bool falta { get; set; }
 
         //Adicionar um contador de faltas
-        public int MyProperty { get; set; }
+        [Display(Name = "Contador de faltas do Aluno")]
+        public int presenca { get; set; }
 
         //Chaves Estrangeiras
-        public int cdAluno { get; set; }
+        //Associação
+        public Aluno cdAluno { get; set; }
 
-        public int cdMateria { get; set; }
+        public Materia cdMateria { get; set; }
 
     }
 }

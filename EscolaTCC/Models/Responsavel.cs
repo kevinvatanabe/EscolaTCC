@@ -44,7 +44,7 @@ namespace EscolaTCC.Models
         //Endereço
         //Chave Estrangeira
         [Display(Name = "CEP do Responsável")]
-        public int CEP_End           { get; set; }
+        public Endereco CEP_End      { get; set; }
 
 
         //CRUD

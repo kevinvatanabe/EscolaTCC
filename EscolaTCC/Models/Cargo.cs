@@ -13,5 +13,9 @@ namespace EscolaTCC.Models
 
         [Display(Name = "Nome do Cargo")]
         public String nmCargo { get; set; }
+
+        //Descrição do cargo
+        [Display(Name = "Descrição do Cargo")]
+        public String dsCargo { get; set; }
     }
 }

@@ -11,10 +11,13 @@ namespace EscolaTCC.Models
         [Key]
         public int cdNota { get; set; }
 
-        public int cdAtv { get; set; }
-
-        public int cdAluno { get; set; }
-
+        [Display(Name = "Menção da Atividade")]
         public String Mencao { get; set; }
+
+        public Atividade cdAtv { get; set; }
+
+        public Aluno cdAluno { get; set; }
+
+        
     }
 }
