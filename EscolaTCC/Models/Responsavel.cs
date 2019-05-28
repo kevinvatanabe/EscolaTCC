@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,21 +14,36 @@ namespace EscolaTCC.Models
         Conexao con = new Conexao();
 
         //Informações básicas
+        [Key]
         public int CD_Resp           { get; set; }
+
+        [Display(Name = "Nome do Responsável")]
         public String NM_Resp        { get; set; }
+
+        [Display(Name = "Data de Nascimento")]
         public int Dt_Nasc_Resp      { get; set; }
 
         //Números Importantes
+        [Display(Name = "CPF")]
         public int NO_CPF_Resp       { get; set; }
+
+        [Display(Name = "RG")]
         public int NO_RG_Resp        { get; set; }
+
+        [Display(Name = "Último dígito do RG")]
         public int Dig_RG_Resp       { get; set; }
 
 
         //Contato
+        [Display(Name = "E-mail")]
         public String NM_Email_Resp  { get; set; }
+
+        [Display(Name = "Telefone")]
         public int NO_Tel_Resp       { get; set; }
 
         //Endereço
+        //Chave Estrangeira
+        [Display(Name = "CEP do Responsável")]
         public int CEP_End           { get; set; }
 
 

@@ -39,9 +39,11 @@ namespace EscolaTCC
 
             //injeção de depencias
             //adddbcontext recebe como argumento uma função (delegate)
-            services.AddDbContext<EscolaTCCContext>(options =>
+
+            //Não será mais feita
+            /*services.AddDbContext<EscolaTCCContext>(options =>
                   options.UseMySql(Configuration.GetConnectionString("EscolaTCCContext"), 
-                  builder => builder.MigrationsAssembly("EscolaTCC")));
+                  builder => builder.MigrationsAssembly("EscolaTCC")));*/
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

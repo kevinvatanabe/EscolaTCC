@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,17 +14,30 @@ namespace EscolaTCC.Models
         Conexao con = new Conexao();
 
         //Chave Primária
+        [Key]
+        [Display(Name = "Número do CEP")]
         public int NO_CEP            { get; set; }
 
         //Dados do local
+        [Display(Name = "Logradouro")]
         public String NM_Logra       { get; set; }
+
+        [Display(Name = "Número do CEP")]
         public int NO_End            { get; set; }
+
+        [Display(Name = "Nome do Bairro")]
         public String NM_Bairro      { get; set; }
+
+        [Display(Name = "Nome da Cidade")]
         public String NM_Cidade      { get; set; }
+
+        [Display(Name = "Unidade Federativa")]
         public String SG_Uf          { get; set; }
 
-        //Precisa deste?
+       
+        [Display(Name = "Complemento")]
         public String DS_Comp        { get; set; }
+
 
         public void CadastroEndereco(Endereco end)
         {
