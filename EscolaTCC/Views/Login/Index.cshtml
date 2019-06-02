@@ -1,0 +1,53 @@
+﻿@model EscolaTCC.Models.Login
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Login - Index</h2>
+
+<h4>Acesse sua conta</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+
+        <!-- "asp-action : acessa o método Index do Controller Login"-->
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+           <!--
+               <div class="form-group">
+                    <label asp-for="cdLogin" class="control-label"></label>
+                    <input asp-for="cdLogin" class="form-control" />
+                    <span asp-validation-for="cdLogin" class="text-danger"></span>
+               </div>
+            -->
+
+            <div class="form-group">
+                <label asp-for="nmUsuario" class="control-label"></label>
+                <input asp-for="nmUsuario" class="form-control" />
+                <span asp-validation-for="nmUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nmSenha" class="control-label"></label>
+                <input asp-for="nmSenha" class="form-control" type="password" />
+                <span asp-validation-for="nmSenha" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Acessar" class="btn btn-default" />
+            </div>
+        </form>
+
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Voltar">Menu Inicial</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
