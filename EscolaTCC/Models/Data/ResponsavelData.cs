@@ -1,0 +1,31 @@
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace EscolaTCC.Models.Data
+{
+    public class ResponsavelData
+    {
+        Conexao con = new Conexao();
+        public void CadastroResponsavel(Responsavel resp)
+        {
+            MySqlCommand cmd = new MySqlCommand
+           ("INSERT INTO tblResponsavel VALUES(@CD_Resp,@NM_Resp,@Dt_Nasc_Resp,@NO_CPF_Resp,@NO_RG_Resp,@Dig_RG_Resp,@NM_Email_Resp,@NO_Tel_Resp,@CEP_End)", con.conectarBD());
+
+            cmd.Parameters.Add("@CD_Resp", MySqlDbType.Int32).Value = resp.CD_Resp;
+            cmd.Parameters.Add("@NM_Resp", MySqlDbType.VarChar).Value = resp.NM_Resp;
+            cmd.Parameters.Add("@Dt_Nasc_Resp", MySqlDbType.Date).Value = resp.Dt_Nasc_Resp;
+            cmd.Parameters.Add("@NO_CPF_Resp", MySqlDbType.Int32).Value = resp.NO_CPF_Resp;
+            cmd.Parameters.Add("@NO_RG_Resp", MySqlDbType.Int32).Value = resp.NO_RG_Resp;
+            cmd.Parameters.Add("@Dig_RG_Resp", MySqlDbType.VarChar).Value = resp.Dig_RG_Resp;
+            cmd.Parameters.Add("@NM_Email_Resp", MySqlDbType.VarChar).Value = resp.NM_Email_Resp;
+            cmd.Parameters.Add("@NO_Tel_Resp", MySqlDbType.Int32).Value = resp.NO_Tel_Resp;
+            cmd.Parameters.Add("@CEP_End", MySqlDbType.Int32).Value = resp.CEP_End;
+
+            cmd.ExecuteNonQuery();
+            con.desconectarBD();
+        }
+    }
+}
