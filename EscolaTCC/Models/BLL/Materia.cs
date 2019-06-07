@@ -12,9 +12,9 @@ namespace EscolaTCC.Models
         public int cdMateria { get; set; }
 
         [Display(Name = "Nome da Matéria")]
-        public String nmMateria { get; set; }
+        public String Nm_Materia { get; set; }
 
         [Display(Name = "Descrição da Matéria")]
-        public String dsMateria { get; set; }
+        public String Ds_Materia { get; set; }
     }
 }

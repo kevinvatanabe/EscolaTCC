@@ -9,14 +9,14 @@ namespace EscolaTCC.Models
     public class Nota
     {
         [Key]
-        public int cdNota { get; set; }
+        public int Cd_Nota { get; set; }
 
         [Display(Name = "Menção da Atividade")]
         public String Mencao { get; set; }
 
-        public Atividade cdAtv { get; set; }
+        public Atividade Cd_Atv { get; set; }
 
-        public Aluno cdAluno { get; set; }
+        public Aluno Cd_Aluno { get; set; }
 
         
     }

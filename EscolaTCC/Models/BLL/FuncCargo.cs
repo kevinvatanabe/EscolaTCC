@@ -12,11 +12,19 @@ namespace EscolaTCC.Models
         public int cdFuncCargo { get; set; }
 
         [Display(Name = "Formação")]
-        public int dsFormacao { get; set; }
+        public String dsFormacao { get; set; }
+
+        [Display(Name = "Salário")]
+        public decimal No_Salario { get; set; }
+
+        [Display(Name = "Descrição")]
+        public String Ds_Cargo { get; set; }
 
         //Chaves Estrangeiras
         public int cdFunc { get; set; }
         public int cdLogin { get; set; }
         public int cdCargo { get; set; }
+
+
     }
 }

@@ -9,20 +9,20 @@ namespace EscolaTCC.Models
     public class Atividade
     {
         [Key]
-        public int cdAtv { get; set; }
+        public int Cd_Atv { get; set; }
 
         [Display(Name = "Data da Realização da Atividade")]
-        public int dtAtv { get; set; }
+        public int Dt_Atv { get; set; }
 
         [Display(Name = "Descrição da Atividade")]
-        public String dsAtv { get; set; }
+        public String Ds_Atv { get; set; }
 
         //Código do professor vinculda a matéria
         [Display(Name = "Código do Professor")]
-        public int cdFuncCargo { get; set; }
+        public int Cd_FuncCargo { get; set; }
 
         //Código da Turma
         [Display(Name = "Código da Turma")]
-        public int cdTurma { get; set; }
+        public int Cd_Turma { get; set; }
     }
 }

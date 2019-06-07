@@ -11,12 +11,14 @@ namespace EscolaTCC.Models
         [Key]
         public int cdLogin { get; set; }
 
-        [Required (ErrorMessage = "Informe o login!")]
-        [Display(Name = "Usuário")]
-        public String nmUsuario { get; set; }
+        [Required (ErrorMessage = "Informe o email!")]
+        [Display(Name = "Email")]
+        public String nmEmail { get; set; }
 
         [Required(ErrorMessage = "Informe sua senha!")]
         [Display(Name = "Senha")]
         public String nmSenha { get; set; }
+
+        public int cdAutorizac { get; set; }
     }
 }

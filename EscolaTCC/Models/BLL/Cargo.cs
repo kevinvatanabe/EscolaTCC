@@ -9,13 +9,13 @@ namespace EscolaTCC.Models
     public class Cargo
     {
         [Key]
-        public int cdCargo { get; set; }
+        public int CdCargo { get; set; }
 
         [Display(Name = "Nome do Cargo")]
-        public String nmCargo { get; set; }
+        public String Nm_Cargo { get; set; }
 
         //Descrição do cargo
         [Display(Name = "Descrição do Cargo")]
-        public String dsCargo { get; set; }
+        public String Ds_Cargo { get; set; }
     }
 }
