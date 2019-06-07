@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EscolaTCC.Models.Data
+namespace EscolaTCC.Models.DAL
 {
-    public class LoginData
+    public class ClasseDal
     {
-
     }
 }

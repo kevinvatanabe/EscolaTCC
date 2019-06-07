@@ -42,7 +42,7 @@ namespace EscolaTCC.Models
         public void CadastroEndereco(Endereco end)
         {
             MySqlCommand cmd = new MySqlCommand
-           ("INSERT INTO tblEndereco VALUES(@NO_CEP,@NM_Logra,@NO_End,@NM_Bairro,@NM_Cidade,@SG_Uf,@DS_Comp)", con.conectarBD());
+           ("CALL sp(@NO_CEP,@NM_Logra,@NO_End,@NM_Bairro,@NM_Cidade,@SG_Uf,@DS_Comp)", con.conectarBD());
 
             cmd.Parameters.Add("@NO_CEP", MySqlDbType.Int32).Value = end.NO_CEP;
             cmd.Parameters.Add("@NM_Logra", MySqlDbType.VarChar).Value = end.NM_Logra;

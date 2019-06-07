@@ -34,7 +34,7 @@ namespace EscolaTCC.Models
 
         //Chave Estrangeira
         //Associação
-        public Responsavel CD_Resp  { get; set; }
+        public int CD_Resp  { get; set; }
 
         //CRUD
         public void CadastroAluno(Aluno aluno)
