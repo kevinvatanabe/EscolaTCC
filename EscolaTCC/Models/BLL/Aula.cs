@@ -23,7 +23,7 @@ namespace EscolaTCC.Models.BLL
         public int Ds_Aula { get; set; }
 
 
-        public D Dt_Aula { get; set; }
+        public DateTime Dt_Aula { get; set; }
 
 
 

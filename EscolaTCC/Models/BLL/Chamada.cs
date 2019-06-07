@@ -9,15 +9,12 @@ namespace EscolaTCC.Models
     public class Chamada
     {
         [Key]
-        public int cdChamada { get; set; }
+        public int Cd_Chamada { get; set; }
 
         //Não acho que seja booleano
         [Display(Name = "Falta do dia")]
         public bool falta { get; set; }
 
-        //Adicionar um contador de faltas
-        [Display(Name = "Contador de faltas do Aluno")]
-        public int presenca { get; set; }
 
         //Chaves Estrangeiras
         //Associação
