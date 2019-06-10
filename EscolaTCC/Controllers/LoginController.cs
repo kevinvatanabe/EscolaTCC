@@ -12,12 +12,20 @@ namespace EscolaTCC.Controllers
     {
 
         Login login = new Login();
+
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
-
-
+    
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Logar(Login login)
+        {
+            @ViewBag.Message = "Hello";
+            return 
+        }
 
         public IActionResult Voltar()
         {

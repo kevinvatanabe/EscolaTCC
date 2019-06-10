@@ -7,24 +7,29 @@
 <h2>Login - Index</h2>
 
 <h4>Acesse sua conta</h4>
+<h4>@ViewBag.Message</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
 
 
         <!-- "asp-action : acessa o método Index do Controller Login"-->
-        <form asp-action="Index">
+        <form asp-action="Logar" asp-controller="Login" method="post" >
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
                 <label asp-for="NmEmail" class="control-label"></label>
-                <input asp-for="NmEmail" class="form-control" />
+
+                <input asp-for="NmEmail" class="form-control" name="txtEmail" id="txtEmail"/>
+
                 <span asp-validation-for="NmEmail" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="NmSenha" class="control-label"></label>
-                <input asp-for="NmSenha" class="form-control" type="password" />
+
+                <input asp-for="NmSenha" class="form-control" type="password" name="txtSenha" id="Senha" />
+
                 <span asp-validation-for="NmSenha" class="text-danger"></span>
             </div>
 
