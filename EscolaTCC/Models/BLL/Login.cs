@@ -9,16 +9,16 @@ namespace EscolaTCC.Models
     public class Login
     {
         [Key]
-        public int cdLogin { get; set; }
+        public int CdLogin { get; set; }
 
         [Required (ErrorMessage = "Informe o email!")]
         [Display(Name = "Email")]
-        public String nmEmail { get; set; }
+        public String NmEmail { get; set; }
 
         [Required(ErrorMessage = "Informe sua senha!")]
         [Display(Name = "Senha")]
-        public String nmSenha { get; set; }
+        public String NmSenha { get; set; }
 
-        public int cdAutorizac { get; set; }
+        public int CdAutorizacao { get; set; }
     }
 }

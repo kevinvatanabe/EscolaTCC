@@ -10,7 +10,7 @@ namespace EscolaTCC.Models.Data
     {
         public static string msg;
 
-        MySqlConnection con = new MySqlConnection(@"server=localhost;userid=root;password=1234567;database=dbong");
+        MySqlConnection con = new MySqlConnection(@"server=localhost;userid=root;password=1234567;database=dbescola");
 
         public MySqlConnection conectarBD()
         {
