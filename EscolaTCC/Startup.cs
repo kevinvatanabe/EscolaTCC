@@ -34,8 +34,13 @@ namespace EscolaTCC
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.AddDistributedMemoryCache();
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(1);//You can set Time  
+                options.Cookie.IsEssential = true;
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+          
 
             //injeção de depencias
             //adddbcontext recebe como argumento uma função (delegate)
@@ -62,6 +67,8 @@ namespace EscolaTCC
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

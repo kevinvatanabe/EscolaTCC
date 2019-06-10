@@ -17,7 +17,7 @@ namespace EscolaTCC.Controllers
             return View();
         }
 
- 
+
 
         public IActionResult Voltar()
         {
