@@ -14,13 +14,21 @@
 
 
         <!-- "asp-action : acessa o método Index do Controller Login"-->
-        <form asp-action="Logar" asp-controller="Login" method="post" >
+        <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <select id="Autorizacao" name="Autorizacao">
+                <option value="Professor">Professor</option>
+                <option value="Responsavel">Responsavel</option>
+                <option value="Secretaria">Secretaria</option>
+                <option value="Diretor">Diretor</option>
+
+            </select>
 
             <div class="form-group">
                 <label asp-for="NmEmail" class="control-label"></label>
 
-                <input asp-for="NmEmail" class="form-control" name="txtEmail" id="txtEmail"/>
+                <input asp-for="NmEmail" class="form-control" name="txtEmail" id="txtEmail" />
 
                 <span asp-validation-for="NmEmail" class="text-danger"></span>
             </div>

@@ -11,16 +11,19 @@ namespace EscolaTCC.Models.DAL
     {
         Conexao con = new Conexao();
 
-        public void VerificaLogin(Login login)
+        public string VerificaUsuario(Login login)
         {
             MySqlCommand cmd = new MySqlCommand
-           ("CALL spVerificaLogin(@nmEmail,@nmSenha)", con.conectarBD());
+           ("CALL sp_VerificaUsuario(@nmEmail,@nmSenha)", con.conectarBD());
 
-            cmd.Parameters.Add("@nmEmail", MySqlDbType.VarChar).Value = login.NmEmail;
-            cmd.Parameters.Add("@nmSenha", MySqlDbType.VarChar).Value = login.NmSenha;
+            cmd.Parameters.AddWithValue("@nmEmail", MySqlDbType.VarChar).Value = login.NmEmail;
+            cmd.Parameters.AddWithValue("@nmSenha", MySqlDbType.VarChar).Value = login.NmSenha;
 
-            cmd.ExecuteNonQuery();
+            string sucesso = Convert.ToString(cmd.ExecuteScalar());
+           
             con.desconectarBD();
+
+            return sucesso;
         }
     }
 }

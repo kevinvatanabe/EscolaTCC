@@ -15,6 +15,9 @@ namespace EscolaTCC.Controllers
         public IActionResult Index()
         {
             HttpContext.Session.SetString(SessionName, "Foi");
+
+            ViewBag.Email = HttpContext.Session.GetString("Email");
+
             return View();
         }
 
@@ -22,6 +25,7 @@ namespace EscolaTCC.Controllers
         {
             ViewData["Message"] = "Your application description page.";
             ViewBag.Message = HttpContext.Session.GetString(SessionName);
+
 
             return View();
         }
