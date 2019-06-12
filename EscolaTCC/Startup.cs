@@ -36,7 +36,7 @@ namespace EscolaTCC
 
             services.AddDistributedMemoryCache();
             services.AddSession(options => {
-                options.IdleTimeout = TimeSpan.FromMinutes(1);//You can set Time  
+                options.IdleTimeout = TimeSpan.FromSeconds(5);//You can set Time  
                 options.Cookie.IsEssential = true;
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

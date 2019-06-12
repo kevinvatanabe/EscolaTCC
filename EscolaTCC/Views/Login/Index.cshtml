@@ -4,11 +4,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Login - Index</h2>
+<h2>Login</h2>
 
 <h4>Acesse sua conta</h4>
-<h4>@ViewBag.Message</h4>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
 
@@ -17,13 +17,16 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <select id="Autorizacao" name="Autorizacao">
+            <label for="Autorizacao" class="control-label">Quem você é?</label>
+
+            <select id="Autorizacao" name="Autorizacao" class="form-control">
                 <option value="Professor">Professor</option>
                 <option value="Responsavel">Responsavel</option>
                 <option value="Secretaria">Secretaria</option>
                 <option value="Diretor">Diretor</option>
-
             </select>
+
+            <hr />
 
             <div class="form-group">
                 <label asp-for="NmEmail" class="control-label"></label>
@@ -40,6 +43,8 @@
 
                 <span asp-validation-for="NmSenha" class="text-danger"></span>
             </div>
+
+            <hr />
 
             <div class="form-group">
                 <input type="submit" value="Acessar" class="btn btn-default" />
