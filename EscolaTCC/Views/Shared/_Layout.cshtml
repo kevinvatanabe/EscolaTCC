@@ -1,4 +1,31 @@
-﻿<!DOCTYPE html>
+﻿@{
+    int var1 = 10;
+    string var;
+
+    if (var1 == 10)
+    {
+        <text>
+            @:<ul>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Funcionários<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("Diretores", "Index", "Home", null, new { id = "item 1" })</li>
+                        <li>@Html.ActionLink("Professores", "Index", "Home", null, new { id = "item 2" })</li>
+                        <li>@Html.ActionLink("Secretaria", "Index", "Home", null, new { id = "item 3" })</li>
+                    </ul>
+                </li>
+               
+            @: </ul>
+        </text>
+    }
+    else
+    {
+    }
+
+
+
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -59,7 +86,7 @@
                         </ul>
                     </li>
                 </ul>
-        
+
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="About">Sobre</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contato</a></li>
@@ -83,6 +110,8 @@
 
                     <!--Para fins de Logout-->
                     <li><a asp-area="" asp-controller="Login" asp-action="Index"></a></li>
+
+                    @ViewBag.TesteNavBar
 
                 </ul>
             </div>
