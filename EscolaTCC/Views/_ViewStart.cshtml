@@ -1,4 +1,40 @@
 ﻿@{
-    Layout = "_Layout";
-    
+//Precisamos desta sessão para pegar os valores das Sessions usadas
+    @using Microsoft.AspNetCore.Http
+    @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+    int Autorizacao;
+
+    Autorizacao = Convert.ToInt32(@HttpContextAccessor.HttpContext.Session.GetInt32("Autorizacao"));
+
+    if (Autorizacao == 0)
+    {
+        Layout = "_LayoutDeslogado";
+    }
+
+    else if (Autorizacao == 1)
+    {
+        Layout = "_LayoutResponsavel";
+
+    }
+    else if (Autorizacao == 2)
+    {
+        Layout = "_LayoutProfessor";
+
+    }
+    else if (Autorizacao == 3)
+    {
+        Layout = "_LayoutSecretaria";
+
+    }
+    else if (Autorizacao == 4)
+    {
+        Layout = "_LayoutDiretor";
+
+    }
+    else
+    {
+        Layout = "_LayoutDeslogado";
+
+    }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EscolaTCC.Models;
 using EscolaTCC.Models.DAL;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,8 +42,9 @@ namespace EscolaTCC.Controllers
                 else
                     login.CdAutorizacao = 4;
 
+                string retornoVerificaLogin = loginDal.VerificaUsuario(login);
 
-                if (loginDal.VerificaUsuario(login) == "Sim")
+                if (retornoVerificaLogin == "Sim")
                 {
                   
                     string SessionEmail = login.NmEmail;
@@ -55,21 +57,36 @@ namespace EscolaTCC.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
-                else if (loginDal.VerificaUsuario(login) == "Nao")
+                else if (retornoVerificaLogin == "Nao")
                 {
-                    @ViewBag.Message = "Usuário ou senha incorretos.";
-                    return RedirectToAction("Index", "Home");
+                    ModelState.AddModelError("Erro", "Usuário ou senha incorretos.");
+                    return View("Index");
                 }
                 else
                 {
-                    ViewBag.Message = "usuário não registrado";
-                    return RedirectToAction("Index", "Home");
+                    ModelState.AddModelError("Erro", "Usuário ou senha incorretos.");
+                    return View("Index");
                 }
 
             }
             return View();
         }
 
+        public IActionResult Logoff()
+        {
+
+            string SessionEmail = " ";
+            string SessionSenha = " ";
+            int SessionAutorizacao = 0;
+
+            HttpContext.Session.SetString("Email", SessionEmail);
+            HttpContext.Session.SetString("Senha", SessionSenha);
+            HttpContext.Session.SetInt32("Autorizacao", SessionAutorizacao);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [AllowAnonymous]
         public IActionResult Voltar()
         {
             return RedirectToAction("Index","Home");

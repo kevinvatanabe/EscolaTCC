@@ -1,31 +1,4 @@
-﻿@{
-    int var1 = 10;
-    string var;
-
-    if (var1 == 10)
-    {
-        <text>
-            @:<ul>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Funcionários<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>@Html.ActionLink("Diretores", "Index", "Home", null, new { id = "item 1" })</li>
-                        <li>@Html.ActionLink("Professores", "Index", "Home", null, new { id = "item 2" })</li>
-                        <li>@Html.ActionLink("Secretaria", "Index", "Home", null, new { id = "item 3" })</li>
-                    </ul>
-                </li>
-               
-            @: </ul>
-        </text>
-    }
-    else
-    {
-    }
-
-
-
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -63,37 +36,6 @@
             </div>
             <div class="navbar-collapse collapse">
 
-                <!--To be fair, I don't know what I did here. Just got the script from that source.-->
-                <!--https://stackoverflow.com/questions/32420028/how-to-create-dropdown-navbar-menu-item-in-layout-cshtml-in-asp-net-->
-                <!--Credits go all to them!-->
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Funcionários<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Diretores", "Index", "Home", null, new { id = "item 1" })</li>
-                            <li>@Html.ActionLink("Professores", "Index", "Home", null, new { id = "item 2" })</li>
-                            <li>@Html.ActionLink("Secretaria", "Index", "Home", null, new { id = "item 3" })</li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">A Escola<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Turmas", "Index", "Home", null, new { id = "item 1" })</li>
-                            <li>@Html.ActionLink("Alunos", "Index", "Home", null, new { id = "item 2" })</li>
-                            <li>@Html.ActionLink("Responsáveis", "Index", "Home", null, new { id = "item 3" })</li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">Sobre</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contato</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Galeria</a></li>
-
-                </ul>
-
                 <!--Neither I know what I did here.-->
                 <ul class="nav navbar-nav navbar-right">
 
@@ -104,14 +46,13 @@
                         <button type="submit" class="btn btn-default">Pesquisar</button>
                     </form>
 
-                    <!--Como deixar o e-mail e a foto?-->
-                    <!--Seria legal fazer um dropdown menú para isso?-->
-                    <li><a asp-area="" asp-controller="Login" asp-action="Index">Login</a></li>
-
-                    <!--Para fins de Logout-->
-                    <li><a asp-area="" asp-controller="Login" asp-action="Index"></a></li>
-
-                    @ViewBag.TesteNavBar
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">O e-mail vai aqui<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Minha Conta", "Index", "Login", null, new { id = "item 1" })</li>
+                            <li>@Html.ActionLink("Sair", "Index", "Login", null, new { id = "item 2" })</li>
+                        </ul>
+                    </li>
 
                 </ul>
             </div>

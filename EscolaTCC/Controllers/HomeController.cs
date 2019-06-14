@@ -15,12 +15,17 @@ namespace EscolaTCC.Controllers
 {
     public class HomeController : Controller
     {
+        //Teste da primeira Session
         const string SessionName = "_Name";
+
         public IActionResult Index()
         {
             HttpContext.Session.SetString(SessionName, "Foi");
 
+            //Teste de exibição da primeira Session
             ViewBag.Email = HttpContext.Session.GetString("Email");
+            ViewBag.Senha = HttpContext.Session.GetString("Senha");
+            ViewBag.Autorizacao = HttpContext.Session.GetInt32("Autorizacao");
 
             return View();
         }
