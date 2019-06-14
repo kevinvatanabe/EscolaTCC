@@ -1,7 +1,28 @@
 ﻿@model EscolaTCC.Models.Login
 
 @{
-    ViewData["Title"] = "Index";
+
+    ViewData["Title"] = "Acesse sua conta";
+
+    //Talvez essa lógica seja deprimente, porém é um bom desencargo de consciência.
+    int resposta = Convert.ToInt32(ViewData["Resultado"]);
+    if (resposta == 2)
+    {
+        <script type="text/JavaScript">
+            alert('Email, senha ou usuário incorretos!');
+
+        </script>
+    }
+    else if (resposta == 3)
+    {
+        <script type="text/JavaScript">
+            alert('Usuário não existe!');
+
+        </script>
+    }
+    else
+    {
+    }
 }
 
 <h2>Login</h2>
@@ -56,6 +77,10 @@
 </div>
 
 <div>
+    <a>Esqueci minha senha!</a>
+
+    <hr />
+
     <a asp-action="Voltar">Menu Inicial</a>
 </div>
 
