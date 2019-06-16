@@ -1,0 +1,138 @@
+﻿@model EscolaTCC.Models.BLL.Funcionario
+
+@{
+    ViewData["Title"] = "Cadastro de Professor";
+
+    //Talvez essa lógica seja deprimente, porém é um bom desencargo de consciência.
+    int resposta = Convert.ToInt32(ViewData["ResultadoFuncionario"]);
+
+    if (resposta == 1)
+    {
+        <script type="text/JavaScript">
+            alert('Cadastro feito com sucesso!');
+
+        </script>
+    }
+    else if (resposta == 2)
+    {
+        <script type="text/JavaScript">
+            alert('CPF já cadastrado');
+
+        </script>
+    }
+    else if (resposta == 3)
+    {
+        <script type="text/JavaScript">
+            alert('Erro inesperado!');
+
+        </script>
+    }
+    else
+    {
+
+    }
+}
+
+<h2>Index</h2>
+
+<h4>Professor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="No_CepFunc" class="control-label"></label>
+                <input asp-for="No_CepFunc" class="form-control" type="text" name="Cep" id="Cep" />
+                <span asp-validation-for="No_CepFunc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Nm_Func" class="control-label"></label>
+                <input asp-for="Nm_Func" class="form-control" name="Nome" id="Nome" />
+                <span asp-validation-for="Nm_Func" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="No_CpfFunc" class="control-label"></label>
+                <input asp-for="No_CpfFunc" class="form-control" name="Cpf" id="Cpf" />
+                <span asp-validation-for="No_CpfFunc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="No_RgFunc" class="control-label"></label>
+                <input asp-for="No_RgFunc" class="form-control" type="text" name="Rg" id="Rg" />
+                <span asp-validation-for="No_RgFunc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Rg_DigFunc" class="control-label"></label>
+                <input asp-for="Rg_DigFunc" class="form-control" name="Dig" id="Dig" />
+                <span asp-validation-for="Rg_DigFunc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="No_TelFunc" class="control-label"></label>
+                <input asp-for="No_TelFunc" class="form-control" type="text" name="Tel" id="Tel" />
+                <span asp-validation-for="No_TelFunc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Salário</label>
+                <input type="number" name="Salario" id="Salario" class="form-control" />
+                <span asp-validation-for="Ds_CompleFunc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group-lg">
+                <label class="control-label">Formação</label>
+                <input type="text" name="Formacao" id="Formacao" class="form-control" />
+                <span asp-validation-for="Ds_CompleFunc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Nm_EmailFunc" class="control-label"></label>
+                <input asp-for="Nm_EmailFunc" class="form-control" name="Email" id="Email" />
+                <span asp-validation-for="Nm_EmailFunc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Dt_NascFunc" class="control-label"></label>
+                <input asp-for="Dt_NascFunc" class="form-control" type="date" name="Nasc" id="Nasc" />
+                <span asp-validation-for="Dt_NascFunc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="No_EndFunc" class="control-label"></label>
+                <input asp-for="No_EndFunc" class="form-control" name="Numero" id="Numero" />
+                <span asp-validation-for="No_EndFunc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Ds_CompleFunc" class="control-label"></label>
+                <input asp-for="Ds_CompleFunc" class="form-control" name="Comple" id="Comple" />
+                <span asp-validation-for="Ds_CompleFunc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">E-mail da conta</label>
+                <input class="form-control" type="text" name="Conta" id="Conta" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Senha</label>
+                <input type="password" class="form-control" name="Senha" id="Senha" />
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+

@@ -14,24 +14,25 @@ namespace EscolaTCC.Models
         //Chave Primária
         [Key]
         [Display(Name = "Número do CEP")]
+        [Required(ErrorMessage = "Informe o CEP!")]
         public int No_Cep            { get; set; }
 
         //Dados do local
         [Display(Name = "Logradouro")]
+        [Required(ErrorMessage = "Informe o nome do endereço!")]
         public String Nm_Logra       { get; set; }
 
         [Display(Name = "Nome do Bairro")]
+        [Required(ErrorMessage = "Informe o nome do bairro!")]
         public String Nm_Bairro      { get; set; }
 
         [Display(Name = "Nome da Cidade")]
+        [Required(ErrorMessage = "Informe o nome da cidade!")]
         public String Nm_Cidade      { get; set; }
 
         [Display(Name = "Unidade Federativa")]
+        [Required(ErrorMessage = "Informe a sigla do Estado!")]
         public String Sg_Uf          { get; set; }
-
-       
-        [Display(Name = "Complemento")]
-        public String Ds_Comp        { get; set; }
 
     }
 }

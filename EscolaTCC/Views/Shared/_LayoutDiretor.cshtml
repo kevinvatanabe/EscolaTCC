@@ -52,39 +52,71 @@
                 <!--Credits go all to them!-->
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Funcionários<span class="caret"></span></a>
+                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Cadastro I<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Diretores", "Index", "Home", null, new { id = "item 1" })</li>
-                            <li>@Html.ActionLink("Professores", "Index", "Home", null, new { id = "item 2" })</li>
-                            <li>@Html.ActionLink("Secretaria", "Index", "Home", null, new { id = "item 3" })</li>
+                            <li>@Html.ActionLink("Diretores", "Index", "Diretor")</li>
+                            <li>@Html.ActionLink("Professores", "Index", "Professor")</li>
+                            <li>@Html.ActionLink("Secretaria", "Index", "Secretaria")</li>
+                            <li>@Html.ActionLink("Endereços", "Index", "Endereco")</li>
                         </ul>
                     </li>
                 </ul>
+
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">A Escola<span class="caret"></span></a>
+                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Consulta I<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Turmas", "Index", "Home", null, new { id = "item 1" })</li>
-                            <li>@Html.ActionLink("Alunos", "Index", "Home", null, new { id = "item 2" })</li>
-                            <li>@Html.ActionLink("Responsáveis", "Index", "Home", null, new { id = "item 3" })</li>
+                            <li>@Html.ActionLink("Diretores", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Professores", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Secretaria", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Endereços", "Index", "Endereco")</li>
                         </ul>
                     </li>
                 </ul>
+
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Cadastro II<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Alunos", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Responsáveis", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Endereços", "Index", "Endereco")</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Consulta II<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Alunos", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Responsáveis", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Endereços", "Index", "Endereco")</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">Turmas</a></li>
+                </ul>
+
 
                 <!--Neither I know what I did here.-->
                 <ul class="nav navbar-nav navbar-right">
 
+                    <!--
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Digite o que você procura">
                         </div>
                         <button type="submit" class="btn btn-default">Pesquisar</button>
                     </form>
+                    -->
 
                     <li class="dropdown">
                         <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">@TempData["Email"]<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Minha Conta", "Index", "Login", null, new { id = "item 1" })</li>
+                            <li>@Html.ActionLink("Minha Conta", "Detalhes", "Login", null, new { id = "item 1" })</li>
                             <li>@Html.ActionLink("Sair", "Logoff", "Login", null, new { id = "item 2" })</li>
                         </ul>
                     </li>

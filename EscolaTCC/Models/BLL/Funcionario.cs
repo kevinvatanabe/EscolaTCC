@@ -12,37 +12,36 @@ namespace EscolaTCC.Models.BLL
         [Key]
         public int Cd_Func { get; set; }
 
-
         //Dados
         [Display(Name = "Nome")]
         public String Nm_Func { get; set; }
 
         [Display(Name = "CPF")]
-        public int No_CpfFunc { get; set; }
+        public String No_CpfFunc { get; set; }
 
         [Display(Name = "RG")]
         public int No_RgFunc { get; set; }
 
         [Display(Name = "Dígito do RG")]
-        public int Rg_DigFunc { get; set; }
+        public String Rg_DigFunc { get; set; }
 
         [Display(Name = "Telefone")]
-        public int No_TelFunc { get; set; }
+        public String No_TelFunc { get; set; }
 
-        [Display(Name = "Email")]
+        [Display(Name = "Email para contato")]
         public String Nm_EmailFunc { get; set; }
 
         [Display(Name = "Data de Nascimento")]
-        public String Dt_NascFunc { get; set; }
+        public DateTime Dt_NascFunc { get; set; }
 
-        [Display(Name = "Endreço ")]
-        public String No_EndFunc { get; set; }
+        [Display(Name = "Número do Endereço ")]
+        public int No_EndFunc { get; set; }
 
-        [Display(Name = "Complemento do Funcionário")]
+        [Display(Name = "Complemento do Endereço")]
         public String Ds_CompleFunc { get; set; }
 
         // Foreign Key
-
+        [Display(Name = "CEP")]
         public int No_CepFunc { get; set; }
 
 

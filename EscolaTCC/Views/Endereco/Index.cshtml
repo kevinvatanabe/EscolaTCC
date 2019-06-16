@@ -1,0 +1,85 @@
+﻿@model EscolaTCC.Models.Endereco
+
+@{
+    ViewData["Title"] = "Cadastro de Endereço";
+
+    //Talvez essa lógica seja deprimente, porém é um bom desencargo de consciência.
+    int resposta = Convert.ToInt32(ViewData["ResultadoEndereco"]);
+
+    if (resposta == 1)
+    {
+        <script type="text/JavaScript">
+            alert('CEP cadastrado!');
+
+        </script>
+    }
+    else if (resposta == 2)
+    {
+        <script type="text/JavaScript">
+            alert('Dados incorretos!');
+
+        </script>
+    }
+    else if (resposta == 3)
+    {
+        <script type="text/JavaScript">
+            alert('Cadastro bem sucedido!');
+
+        </script>
+    }
+    else
+    {
+
+    }
+}
+<h2>Index</h2>
+
+<h4>Endereço</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="No_Cep" class="control-label"></label>
+                <input asp-for="No_Cep" class="form-control" id="Cep" name="Cep">
+                <span asp-validation-for="No_Cep" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Nm_Logra" class="control-label"></label>
+                <input asp-for="Nm_Logra" class="form-control" id="Logradouro" name="Logradouro" />
+                <span asp-validation-for="Nm_Logra" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Nm_Bairro" class="control-label"></label>
+                <input asp-for="Nm_Bairro" class="form-control" id="Bairro" name="Bairro"/>
+                <span asp-validation-for="Nm_Bairro" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Nm_Cidade" class="control-label"></label>
+                <input asp-for="Nm_Cidade" class="form-control" id="Cidade" name="Cidade" />
+                <span asp-validation-for="Nm_Cidade" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Sg_Uf" class="control-label"></label>
+                <input asp-for="Sg_Uf" class="form-control" id="Uf" name="Uf" />
+                <span asp-validation-for="Sg_Uf" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Voltar", "Index", "Home")
+</div>
+
