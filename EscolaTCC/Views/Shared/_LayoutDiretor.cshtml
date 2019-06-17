@@ -16,6 +16,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Instituição Restauração Social</title>
 
+    <!--Icones do Font Awesome-->
+    <script src="https://kit.fontawesome.com/b456e528b2.js"></script>
+
     <link rel="shortcut icon" href="~/images/icon.ico">
 
     <environment include="Development">
@@ -97,7 +100,7 @@
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">Turmas</a></li>
+                    <li><a asp-area="" asp-controller="Turmas" asp-action="Index">Turmas</a></li>
                 </ul>
 
 
@@ -114,7 +117,8 @@
                     -->
 
                     <li class="dropdown">
-                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">@TempData["Email"]<span class="caret"></span></a>
+                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown"><i class="fas fa-user-circle icon-bar"  style="font-size: 1.20em; padding-right:15px;"></i>@TempData["Email"]<span class="caret"></span> </a>
+                        
                         <ul class="dropdown-menu" role="menu">
                             <li>@Html.ActionLink("Minha Conta", "Detalhes", "Login", null, new { id = "item 1" })</li>
                             <li>@Html.ActionLink("Sair", "Logoff", "Login", null, new { id = "item 2" })</li>
