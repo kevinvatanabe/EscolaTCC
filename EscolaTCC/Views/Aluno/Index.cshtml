@@ -1,0 +1,75 @@
+﻿@model EscolaTCC.Models.Aluno
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<h4>Aluno</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Cd_Aluno" class="control-label"></label>
+                <input asp-for="Cd_Aluno" class="form-control" />
+                <span asp-validation-for="Cd_Aluno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nm_Aluno" class="control-label"></label>
+                <input asp-for="Nm_Aluno" class="form-control" />
+                <span asp-validation-for="Nm_Aluno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dt_NascAluno" class="control-label"></label>
+                <input asp-for="Dt_NascAluno" class="form-control" />
+                <span asp-validation-for="Dt_NascAluno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_CpfAluno" class="control-label"></label>
+                <input asp-for="No_CpfAluno" class="form-control" />
+                <span asp-validation-for="No_CpfAluno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_RgAluno" class="control-label"></label>
+                <input asp-for="No_RgAluno" class="form-control" />
+                <span asp-validation-for="No_RgAluno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dig_RgAluno" class="control-label"></label>
+                <input asp-for="Dig_RgAluno" class="form-control" />
+                <span asp-validation-for="Dig_RgAluno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nm_Pai" class="control-label"></label>
+                <input asp-for="Nm_Pai" class="form-control" />
+                <span asp-validation-for="Nm_Pai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nm_Mae" class="control-label"></label>
+                <input asp-for="Nm_Mae" class="form-control" />
+                <span asp-validation-for="Nm_Mae" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cd_Resp" class="control-label"></label>
+                <input asp-for="Cd_Resp" class="form-control" />
+                <span asp-validation-for="Cd_Resp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cd_Turma" class="control-label"></label>
+                <input asp-for="Cd_Turma" class="form-control" />
+                <span asp-validation-for="Cd_Turma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

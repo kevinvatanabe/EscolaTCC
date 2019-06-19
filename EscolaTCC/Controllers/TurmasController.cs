@@ -39,6 +39,7 @@ namespace EscolaTCC.Controllers
         // GET: Turmas/Details/5
         public ActionResult Details(int id)
         {
+            //Em detalhes será carregado uma relação de 
             return View();
         }
 

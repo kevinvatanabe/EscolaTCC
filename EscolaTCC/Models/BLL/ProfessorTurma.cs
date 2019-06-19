@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EscolaTCC.Models.BLL
 {
-    public class TurmaAluno
+    public class ProfessorTurma
     {
         [Display(Name = "Número")]
         public int Contador { get; set; }
@@ -17,14 +17,16 @@ namespace EscolaTCC.Models.BLL
         [Display(Name = "Descrição da série da Turma")]
         public String dsSerie { get; set; }
 
-        [Display(Name = "Código/Registro do Aluno")]
-        public int Cd_Aluno { get; set; }
+        [Display(Name = "Nome do Professor")]
+        public String Nm_Professor { get; set; }
 
-        [Display(Name = "Nome do Aluno")]
-        public string Nm_Aluno { get; set; }
+        [Display(Name = "Nome da matéria")]
+        public String Nm_Materia { get; set; }
 
+        [Display(Name = "Número de aulas totais")]
+        public int No_AulasTotais { get; set; }
 
-
-
+        [Display(Name = "Número de aulas dadas")]
+        public int No_AulasDadas { get; set; }
     }
 }

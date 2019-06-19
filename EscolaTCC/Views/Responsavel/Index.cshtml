@@ -1,0 +1,90 @@
+﻿@model EscolaTCC.Models.Responsavel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<h4>Responsavel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nm_Resp" class="control-label"></label>
+                <input asp-for="Nm_Resp" class="form-control" />
+                <span asp-validation-for="Nm_Resp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dt_NascResp" class="control-label"></label>
+                <input asp-for="Dt_NascResp" class="form-control" />
+                <span asp-validation-for="Dt_NascResp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_CpfResp" class="control-label"></label>
+                <input asp-for="No_CpfResp" class="form-control" />
+                <span asp-validation-for="No_CpfResp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_RgResp" class="control-label"></label>
+                <input asp-for="No_RgResp" class="form-control" />
+                <span asp-validation-for="No_RgResp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dig_RgResp" class="control-label"></label>
+                <input asp-for="Dig_RgResp" class="form-control" />
+                <span asp-validation-for="Dig_RgResp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_EndResp" class="control-label"></label>
+                <input asp-for="No_EndResp" class="form-control" />
+                <span asp-validation-for="No_EndResp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ds_CompleResp" class="control-label"></label>
+                <input asp-for="Ds_CompleResp" class="form-control" />
+                <span asp-validation-for="Ds_CompleResp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nm_EmailResp" class="control-label"></label>
+                <input asp-for="Nm_EmailResp" class="form-control" />
+                <span asp-validation-for="Nm_EmailResp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_TelResp" class="control-label"></label>
+                <input asp-for="No_TelResp" class="form-control" />
+                <span asp-validation-for="No_TelResp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nm_Email" class="control-label"></label>
+                <input asp-for="Nm_Email" class="form-control" />
+                <span asp-validation-for="Nm_Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nm_Senha" class="control-label"></label>
+                <input asp-for="Nm_Senha" class="form-control" />
+                <span asp-validation-for="Nm_Senha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cd_LoginResp" class="control-label"></label>
+                <input asp-for="Cd_LoginResp" class="form-control" />
+                <span asp-validation-for="Cd_LoginResp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cd_Resp" class="control-label"></label>
+                <input asp-for="Cd_Resp" class="form-control" />
+                <span asp-validation-for="Cd_Resp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

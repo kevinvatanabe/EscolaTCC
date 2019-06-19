@@ -1,25 +1,28 @@
-﻿@model IEnumerable<EscolaTCC.Models.Turma>
+﻿@model IEnumerable<EscolaTCC.Models.BLL.TurmaAluno>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Turma e Alunos";
 }
 
-<h2>Index</h2>
+<h2>Lista de Alunos na Turma</h2>
 
-<p>
-    <a asp-action="Create">Cadastrar nova turma</a>
-</p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.cdTurma)
+                @Html.DisplayNameFor(model => model.Contador)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.nmTurma)
+                @Html.DisplayNameFor(model => model.Cd_Turma)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.dsSerie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cd_Aluno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nm_Aluno)
             </th>
             <th></th>
         </tr>
@@ -28,13 +31,19 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.cdTurma)
+                @Html.DisplayFor(modelItem => item.Contador)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.nmTurma)
+                @Html.DisplayFor(modelItem => item.Cd_Turma)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.dsSerie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cd_Aluno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nm_Aluno)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

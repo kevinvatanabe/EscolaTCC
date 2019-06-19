@@ -32,15 +32,12 @@
 
     }
 }
-<h2>Index</h2>
-
-<h4>Endereço</h4>
+<h2>Index de Endereço</h2>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Index">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+<div style="width:100%">
+    <fieldset class="well" style="display:block; margin:0 auto; width:70%;">
+        <legend>Cadastro de Diretores</legend>
+        <form asp-action="Index" style="display:block; margin:0 auto; width:70%;">
             <div class="form-group">
                 <label asp-for="No_Cep" class="control-label"></label>
                 <input asp-for="No_Cep" class="form-control" id="Cep" name="Cep">
@@ -55,7 +52,7 @@
 
             <div class="form-group">
                 <label asp-for="Nm_Bairro" class="control-label"></label>
-                <input asp-for="Nm_Bairro" class="form-control" id="Bairro" name="Bairro"/>
+                <input asp-for="Nm_Bairro" class="form-control" id="Bairro" name="Bairro" />
                 <span asp-validation-for="Nm_Bairro" class="text-danger"></span>
             </div>
 
@@ -74,12 +71,14 @@
 
             <div class="form-group">
                 <input type="submit" value="Cadastrar" class="btn btn-default" />
+
+                <input type="button" value="Limpar" class="btn btn-default" />
             </div>
         </form>
-    </div>
+    </fieldset>
 </div>
 
 <div>
-    @Html.ActionLink("Voltar", "Index", "Home")
+    <a asp-controller="Home" asp-action="Index">Voltar</a>
 </div>
 

@@ -25,17 +25,13 @@
     }
 }
 
-<h2>Login</h2>
-
-<h4>Acesse sua conta</h4>
+<h2>Index de Login</h2>
 <hr />
+<div style="width:100%">
+    <fieldset class="well" style="display:block; margin:0 auto; width:70%;">
+        <legend>Acesse sua conta</legend>
 
-<div class="row">
-    <div class="col-md-4">
-
-
-        <!-- "asp-action : acessa o método Index do Controller Login"-->
-        <form method="post">
+        <form asp-action="Index" style="display:block; margin:0 auto; width:70%;">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <label for="Autorizacao" class="control-label">Quem você é?</label>
@@ -70,19 +66,19 @@
             <div class="form-group">
                 <input type="submit" value="Acessar" class="btn btn-default" />
             </div>
+
+            <div>
+                <a>Esqueci minha senha!</a>
+
+                   <br />
+                   <br />
+                <a asp-action="Voltar">Menu Inicial</a>
+            </div>
         </form>
+    </fieldset>
 
-
-    </div>
 </div>
 
-<div>
-    <a>Esqueci minha senha!</a>
-
-    <hr />
-
-    <a asp-action="Voltar">Menu Inicial</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

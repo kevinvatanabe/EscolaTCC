@@ -1,9 +1,20 @@
-﻿<!DOCTYPE html>
+﻿@{
+    //Precisamos desta sessão para pegar os valores das Sessions usadas
+    @using Microsoft.AspNetCore.Http
+    @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+    string emailProfessor;
+
+    emailProfessor = Convert.ToString(@HttpContextAccessor.HttpContext.Session.GetString("Email"));
+
+    TempData["Email"] = emailProfessor;
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Instituição Restauração Social</title>
+    <title>@ViewData["Title"] - Instituição Restauração</title>
 
     <link rel="shortcut icon" href="~/images/icon.ico">
 
@@ -32,7 +43,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Inst. Restauração Social</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Instituição Restauração</a>
             </div>
             <div class="navbar-collapse collapse">
 
@@ -47,10 +58,11 @@
                     </form>
 
                     <li class="dropdown">
-                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">O e-mail vai aqui<span class="caret"></span></a>
+                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown"><i class="fas fa-user-circle icon-bar" style="font-size: 1.20em; padding-right:15px;"></i>@TempData["Email"]<span class="caret"></span> </a>
+
                         <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Minha Conta", "Index", "Login", null, new { id = "item 1" })</li>
-                            <li>@Html.ActionLink("Sair", "Index", "Login", null, new { id = "item 2" })</li>
+                            <li>@Html.ActionLink("Minha Conta", "Detalhes", "Login")</li>
+                            <li>@Html.ActionLink("Sair", "Logoff", "Login")</li>
                         </ul>
                     </li>
 
@@ -61,7 +73,7 @@
 
     <partial name="_CookieConsentPartial" />
 
-    <div class="container body-content">
+    <div class="">
         @RenderBody()
         <hr />
         <footer>

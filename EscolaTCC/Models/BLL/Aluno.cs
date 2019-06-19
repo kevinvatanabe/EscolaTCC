@@ -11,6 +11,7 @@ namespace EscolaTCC.Models
     public class Aluno
     {
         [Key]
+        [Display(Name = "Código do Aluno")]
         public int Cd_Aluno      { get; set; }
 
         [Display(Name = "Nome do Aluno")]
@@ -29,23 +30,17 @@ namespace EscolaTCC.Models
         public int Dig_RgAluno { get; set; }
 
         [Display(Name = "Nome do Pai")]
-
-
-
-
-        //Informações relativas ao Responsável
         public String Nm_Pai    { get; set; }
 
         [Display(Name = "Nome da Mãe")]
         public String Nm_Mae    { get; set; }
 
-
-
-
         //Chave Estrangeira
         //Associação
+        [Display(Name = "CPF do Responsável")]
         public int Cd_Resp  { get; set; }
 
+        [Display(Name = "Código da Turma")]
         public int Cd_Turma { get; set; }
 
     
