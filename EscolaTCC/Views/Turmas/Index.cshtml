@@ -1,13 +1,35 @@
 ﻿@model IEnumerable<EscolaTCC.Models.Turma>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista de Turmas";
+
+    //Talvez essa lógica seja deprimente, porém é um bom desencargo de consciência.
+    int resposta = Convert.ToInt32(ViewData["ResultadoTurma"]);
+
+    if (resposta == 1)
+    {
+        <script type="text/JavaScript">
+            alert('Turma cadastrada!');
+
+        </script>
+    }
+    else if (resposta == 2)
+    {
+        <script type="text/JavaScript">
+            alert('Falha no cadastro!');
+
+        </script>
+    }
+    else
+    {
+
+    }
 }
 
-<h2>Index</h2>
+<h2>Lista de Turmas</h2>
 
 <p>
-    <a asp-action="Create">Cadastrar nova turma</a>
+    <a asp-action="Cadastro" style="margin-left:5%;">Cadastrar nova turma</a>
 </p>
 <table class="table">
     <thead>
@@ -25,23 +47,24 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.cdTurma)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nmTurma)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.dsSerie)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cdTurma)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nmTurma)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dsSerie)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

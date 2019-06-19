@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using EscolaTCC.Models;
+using EscolaTCC.Models.DAL;
 using EscolaTCC.Models.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -43,22 +41,34 @@ namespace EscolaTCC.Controllers
             return View();
         }
 
+        [HttpGet]
         // GET: Turmas/Create
-        public ActionResult Create()
+        public ActionResult Cadastro()
         {
             return View();
         }
 
-        // POST: Turmas/Create
+        // POST: Turmas/Cadastro
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Cadastro(Turma turma)
         {
             try
             {
-                // TODO: Add insert logic here
+                TurmaDal turmaDal = new TurmaDal();
+                string retornoCadastro = turmaDal.CadastroTurma(turma);
 
-                return RedirectToAction(nameof(Index));
+                if (retornoCadastro == "Sim")
+                {
+                    ViewData["ResultadoTurma"] = 1;
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    ViewData["ResultadoTurma"] = 2;
+                    return View(ViewData["ResultadoTurma"]);
+                }
+
             }
             catch
             {

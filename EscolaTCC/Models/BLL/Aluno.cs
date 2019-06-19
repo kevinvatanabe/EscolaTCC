@@ -18,7 +18,7 @@ namespace EscolaTCC.Models
         public String Nm_Aluno   { get; set; }
 
         [Display(Name = "Data de Nascimento")]
-        public int Dt_NascAluno { get; set; }
+        public DateTime Dt_NascAluno { get; set; }
 
         [Display(Name = "CPF")]
         public int No_CpfAluno     { get; set; }
@@ -27,7 +27,7 @@ namespace EscolaTCC.Models
         public int No_RgAluno { get; set; }
 
         [Display(Name = "Último Digito do RG")]
-        public int Dig_RgAluno { get; set; }
+        public string Dig_RgAluno { get; set; }
 
         [Display(Name = "Nome do Pai")]
         public String Nm_Pai    { get; set; }

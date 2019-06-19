@@ -1,0 +1,65 @@
+﻿@model EscolaTCC.Models.Turma
+@{
+    ViewData["Title"] = "Cadastro de Turmas";
+
+    //Talvez essa lógica seja deprimente, porém é um bom desencargo de consciência.
+    int resposta = Convert.ToInt32(ViewData["ResultadoTurma"]);
+
+    if (resposta == 1)
+    {
+        <script type="text/JavaScript">
+            alert('Turma cadastrada!');
+
+        </script>
+    }
+    else if (resposta == 2)
+    {
+        <script type="text/JavaScript">
+            alert('Falha no cadastro!');
+
+        </script>
+    }
+    else
+    {
+
+    }
+}
+<h2>Cadastro de Turma</h2>
+<hr />
+<div style="width:100%">
+    <fieldset class="well" style="display:block; margin:0 auto; width:70%;">
+        <legend>Cadastro de Turmas</legend>
+        <form asp-action="Cadastro" style="display:block; margin:0 auto; width:70%;">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="nmTurma" class="control-label"></label>
+                <input asp-for="nmTurma" class="form-control" />
+                <span asp-validation-for="nmTurma" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="nmTurno" class="control-label"></label>
+                <input asp-for="nmTurno" class="form-control" />
+                <span asp-validation-for="nmTurno" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="dsSerie" class="control-label"></label>
+                <input asp-for="dsSerie" class="form-control" />
+                <span asp-validation-for="dsSerie" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-default" />
+
+                <input type="button" value="Limpar" class="btn btn-default" />
+            </div>
+        </form>
+    </fieldset>
+</div>
+
+<div>
+    <a asp-controller="Home" asp-action="Index">Voltar para página inicial</a>
+</div>
+

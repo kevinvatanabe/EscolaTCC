@@ -10,7 +10,7 @@ namespace EscolaTCC.Models
         public String Nm_Resp        { get; set; }
 
         [Display(Name = "Data de Nascimento")]
-        public int Dt_NascResp      { get; set; }
+        public DateTime Dt_NascResp      { get; set; }
 
         //Números Importantes
         [Display(Name = "CPF")]
@@ -20,7 +20,7 @@ namespace EscolaTCC.Models
         public int No_RgResp { get; set; }
 
         [Display(Name = "Último dígito do RG")]
-        public int Dig_RgResp { get; set; }
+        public string Dig_RgResp { get; set; }
 
         //Endereço
         //Chave Estrangeira
