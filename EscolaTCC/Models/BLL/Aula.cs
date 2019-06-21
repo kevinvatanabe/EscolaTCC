@@ -12,17 +12,21 @@ namespace EscolaTCC.Models.BLL
         [Key]
         public int Cd_Aula { get; set; }
 
-
-        //Foreign Key
-
+        //Informações virão do Login
+        [Display(Name = "Código do Funcionário Cargo")]
+        [Required(ErrorMessage = "Nome deve ser informado!")]
         public int Cd_FuncCargo { get; set; }
 
+        [Display(Name = "Código da Turma")]
+        [Required(ErrorMessage = "Código da Turma deve ser informado!")]
         public int Cd_Turma { get; set; }
 
-        [Display(Name = "Descrição da Conta")]
+        [Display(Name = "Descrição da aula")]
+        [Required(ErrorMessage = "Descrição da aula deve ser informada!")]
         public int Ds_Aula { get; set; }
 
-
+        [Display(Name = "Data da aula")]
+        [Required(ErrorMessage = "Data da aula deve ser informada!")]
         public DateTime Dt_Aula { get; set; }
 
 

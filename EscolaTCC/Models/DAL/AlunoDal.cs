@@ -12,20 +12,26 @@ namespace EscolaTCC.Models.DAL
         Conexao con = new Conexao();
 
         //CRUD
-        public void CadastroAluno(Aluno aluno)
+        public string CadastroAluno(Aluno aluno)
         {
             MySqlCommand cmd = new MySqlCommand
-           ("CALL spInsereAluno(@CD_Bene,@NM_Bene,@DT_Nasc_Bene,@CPF_Bene,@NM_Pai,@NM_Mae,@CD_Resp)", con.conectarBD());
+           ("CALL sp_InsertAluno(@NM_Bene,@DT_Nasc_Bene,@No_RgAluno,@Dig_RgAluno,@No_CpfAluno,@NM_Pai,@NM_Mae,@Cpf_Resp,@Cd_Turma)", con.conectarBD());
 
             cmd.Parameters.Add("@NM_Bene", MySqlDbType.VarChar).Value = aluno.Nm_Aluno;
             cmd.Parameters.Add("@DT_Nasc_Bene", MySqlDbType.Date).Value = aluno.Dt_NascAluno;
-            cmd.Parameters.Add("@CPF_Bene", MySqlDbType.Int32).Value = aluno.No_CpfAluno;
+            cmd.Parameters.Add("@No_RgAluno", MySqlDbType.Int64).Value = aluno.No_RgAluno;
+            cmd.Parameters.Add("@Dig_RgAluno", MySqlDbType.VarChar).Value = aluno.Dig_RgAluno;
+            cmd.Parameters.Add("@No_CpfAluno", MySqlDbType.Int64).Value = aluno.No_CpfAluno;
             cmd.Parameters.Add("@NM_Pai", MySqlDbType.VarChar).Value = aluno.Nm_Pai;
             cmd.Parameters.Add("@NM_Mae", MySqlDbType.VarChar).Value = aluno.Nm_Mae;
-            cmd.Parameters.Add("@CD_Resp", MySqlDbType.Int32).Value = aluno.Cd_Resp;
+            cmd.Parameters.Add("@Cpf_Resp", MySqlDbType.Int64).Value = aluno.Cpf_Resp;
+            cmd.Parameters.Add("@Cd_Turma", MySqlDbType.Int64).Value = aluno.Cd_Turma;
 
-            cmd.ExecuteNonQuery();
+            string sucesso = Convert.ToString(cmd.ExecuteScalar());
+
             con.desconectarBD();
+
+            return sucesso;
         }
     }
 }

@@ -17,47 +17,11 @@
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
-
-    <!-- Classes para o navbar transparente NOTA: removi a tag style
-        <!--Classes e Ids para o Script 1-->
-    <!--
-        .Lucasnavbar {
-            z-index: 100;
-            background-color: transparent;
-            font-family: 'futurabt';
-        }
-        .Lucasnavbar.solid {
-            background-color: #18bc9c;
-            color: black;
-            transition: background-color 0.3s ease 0s;
-            box-shadow: 0 0 4px grey;
-            color: black;
-        }
-    -->
+    </environment>   
 </head>
 
 <body>
-    <!--onLoad="window.scroll(0, 150)" usada para iniciar a página em determinado ponto.-->
-    <!--JS que faz o menu trocar de transparente para cor solida-->
-    <!--
-    <script type="text/javascript">
-        $(document).ready(function () {
-            // Transition effect for navbar
-            $(window).scroll(function () {
-                // checks if window is scrolled more than 500px, adds/removes solid class
-                if ($(this).scrollTop() > 500) {
-                    $('.Lucasnavbar').addClass('solid');
-                }
-                else {
-                    $('.Lucasnavbar').removeClass('solid');
-                }
-            });
-        });
-    </script>
-    -->
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-transparent">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

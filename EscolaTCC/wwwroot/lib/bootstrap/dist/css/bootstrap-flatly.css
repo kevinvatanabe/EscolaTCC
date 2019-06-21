@@ -4165,6 +4165,19 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   left: 0;
   z-index: 1030;
 }
+
+.navbar.transparent {
+    z-index: 100;
+    background-color: transparent;
+    font-family: 'futurabt';
+}
+
+.navbar {
+    background-color: #18bc9c;
+    color: black;
+    transition: background-color 0.3s ease 0s;
+    box-shadow: 0 0 4px grey;
+}
 .navbar-fixed-top .navbar-collapse,
 .navbar-fixed-bottom .navbar-collapse {
   max-height: 340px;

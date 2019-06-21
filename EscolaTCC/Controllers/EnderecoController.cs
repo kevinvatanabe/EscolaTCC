@@ -55,7 +55,7 @@ namespace EscolaTCC.Controllers
                 {
                     //Se der certo.
                     ViewData["ResultadoEndereco"] = 3;
-                    return View();
+                    return View(ViewData["ResultadoEndereco"]);
                 }    
             }
 

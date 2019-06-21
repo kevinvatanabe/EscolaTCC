@@ -32,6 +32,14 @@
 
     }
 }
+<script>
+    function MascaraCep(cep) {
+        if (mascaraInteiro(cep) == false) {
+            event.returnValue = false;
+        }
+        return formataCampo(cep, '00.000-000', event);
+    }
+</script>
 
 <h2>Index de Diretores</h2>
 <hr />
@@ -119,7 +127,7 @@
                         <input type="password" class="form-control" name="Senha" id="Senha" style="width:30%" />
 
                         <label class="control-label">Confirmar Senha</label>
-                        <input type="password" class="form-control" name="Senha" id="Senha" style="width:30%" />
+                        <input type="password" class="form-control" style="width:30%" />
                     </div>
 
                     <br />

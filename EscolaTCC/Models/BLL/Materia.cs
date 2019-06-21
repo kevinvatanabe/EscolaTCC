@@ -12,9 +12,11 @@ namespace EscolaTCC.Models
         public int cdMateria { get; set; }
 
         [Display(Name = "Nome da Matéria")]
+        [Required(ErrorMessage = "Nome da matéira deve ser informada!")]
         public String Nm_Materia { get; set; }
 
         [Display(Name = "Descrição da Matéria")]
+        [Required(ErrorMessage = "Descrição da matéria deve ser informada!")]
         public String Ds_Materia { get; set; }
     }
 }

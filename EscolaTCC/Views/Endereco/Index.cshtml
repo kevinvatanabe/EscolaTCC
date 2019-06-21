@@ -32,15 +32,35 @@
 
     }
 }
+
+
+
 <h2>Index de Endereço</h2>
 <hr />
 <div style="width:100%">
     <fieldset class="well" style="display:block; margin:0 auto; width:70%;">
         <legend>Cadastro de Diretores</legend>
-        <form asp-action="Index" style="display:block; margin:0 auto; width:70%;">
+        <form asp-action="Index" style="display:block; margin:0 auto; width:70%;" name="form1">
+
+            <script>
+                //adiciona mascara de cep
+                function MascaraCep(Cep) {
+                    if (mascaraInteiro(Cep) == false) {
+                        event.returnValue = false;
+                    }
+                    return formataCampo(Cep, '00.000-000', event);
+                }
+
+                //valida CEP
+                function ValidaCep(Cep) {
+                    exp = /\d{2}\.\d{3}\-\d{3}/
+                    if (!exp.test(Cep.value))
+                        alert('Numero de Cep Invalido!');
+                }
+            </script>
             <div class="form-group">
                 <label asp-for="No_Cep" class="control-label"></label>
-                <input asp-for="No_Cep" class="form-control" id="Cep" name="Cep">
+                <input asp-for="No_Cep" class="form-control" id="Cep" name="Cep" onKeyPress="MascaraCep(form1.Cep)" onBlur="ValidaCep(form1.cep)">
                 <span asp-validation-for="No_Cep" class="text-danger"></span>
             </div>
 

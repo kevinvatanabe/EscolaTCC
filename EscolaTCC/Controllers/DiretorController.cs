@@ -27,9 +27,7 @@ namespace EscolaTCC.Controllers
                 FuncionarioDal funcDal = new FuncionarioDal();
 
                 func.No_CepFunc = Convert.ToInt32(frm["Cep"]);
-
                 func.Nm_Func = Convert.ToString(frm["Nome"]);
-                func.No_CpfFunc = Convert.ToString(frm["Cpf"]);
                 func.No_CpfFunc = Convert.ToString(frm["Cpf"]);
                 func.No_RgFunc = Convert.ToInt32(frm["Rg"]);
                 func.Rg_DigFunc = Convert.ToString(frm["Dig"]);

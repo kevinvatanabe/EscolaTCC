@@ -8,28 +8,32 @@
     if (resposta == 1)
     {
         <script type="text/JavaScript">
-            alert('Cadastro feito com sucesso!');
+            alert('CPF já cadastrado!');
 
         </script>
     }
     else if (resposta == 2)
     {
         <script type="text/JavaScript">
-            alert('CPF já cadastrado');
+            alert('E-mail da conta já cadastrado!');
 
         </script>
     }
     else if (resposta == 3)
     {
         <script type="text/JavaScript">
-            alert('Erro inesperado!');
+            alert('CEP não cadastrado!');
 
         </script>
     }
-    else
+    else if (resposta == 4)
     {
+        <script type="text/JavaScript">
+            alert('Cadastro feito com sucesso!');
 
+        </script>
     }
+    else { }
 }
 
 <h2>Index de Responsável</h2>
@@ -59,12 +63,18 @@
 
             <div class="form-inline">
                 <label asp-for="No_RgResp" class="control-label"></label>
-                <input asp-for="No_RgResp" class="form-control" type="text" name="Rg" id="Rg" />
+                <input asp-for="No_RgResp" class="form-control" />
                 <span asp-validation-for="No_RgResp" class="text-danger"></span>
 
                 <label asp-for="Dig_RgResp" class="control-label"></label>
-                <input asp-for="Dig_RgResp" class="form-control" name="Dig" id="Dig" style="width:50px" />
+                <input asp-for="Dig_RgResp" class="form-control" style="width:50px" />
                 <span asp-validation-for="Dig_RgResp" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Cep_End" class="control-label"></label>
+                <input asp-for="Cep_End" class="form-control" />
+                <span asp-validation-for="Cep_End" class="text-danger"></span>
             </div>
 
             <div class="form-group">
@@ -91,17 +101,19 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="Nm_Email" class="control-label"></label>
-                <input asp-for="Nm_Email" class="form-control" />
-                <span asp-validation-for="Nm_Email" class="text-danger"></span>
+                <label asp-for="Nm_EmailRespConta" class="control-label"></label>
+                <input asp-for="Nm_EmailRespConta" class="form-control" />
+                <span asp-validation-for="Nm_EmailRespConta" class="text-danger"></span>
             </div>
 
             <div class="form-inline">
-                <label class="control-label">Senha</label>
-                <input type="password" class="form-control" name="Senha" id="Senha" style="width:30%" />
+                <label asp-for="Nm_SenhaResp" class="control-label"></label>
+                <input asp-for="Nm_SenhaResp" type="password" class="form-control" style="width:30%" />
+                <span asp-validation-for="Nm_SenhaResp" class="text-danger"></span>
 
-                <label class="control-label">Confirmar Senha</label>
-                <input type="password" class="form-control" name="Senha" id="Senha" style="width:30%" />
+                <label asp-for="Nm_RepetirSenhaResp" class="control-label"></label>
+                <input asp-for="Nm_RepetirSenhaResp" type="password" class="form-control" style="width:30%" />
+                <span asp-validation-for="Nm_RepetirSenhaResp" class="text-danger"></span>
             </div>
 
 

@@ -9,14 +9,14 @@
     if (resposta == 1)
     {
         <script type="text/JavaScript">
-            alert('Cadastro feito com sucesso!');
+            alert('CPF já cadastrado!');
 
         </script>
     }
     else if (resposta == 2)
     {
         <script type="text/JavaScript">
-            alert('CPF já cadastrado');
+            alert('Cadastro feito com sucesso!');
 
         </script>
     }
@@ -48,7 +48,7 @@
 
             <div class="form-group">
                 <label asp-for="Dt_NascAluno" class="control-label"></label>
-                <input asp-for="Dt_NascAluno" class="form-control" />
+                <input asp-for="Dt_NascAluno" class="form-control" type="date" />
                 <span asp-validation-for="Dt_NascAluno" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -80,9 +80,9 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="Cd_Resp" class="control-label"></label>
-                <input asp-for="Cd_Resp" class="form-control" />
-                <span asp-validation-for="Cd_Resp" class="text-danger"></span>
+                <label asp-for="Cpf_Resp" class="control-label"></label>
+                <input asp-for="Cpf_Resp" class="form-control" />
+                <span asp-validation-for="Cpf_Resp" class="text-danger"></span>
             </div>
 
             <div class="form-group">

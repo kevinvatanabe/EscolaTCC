@@ -15,5 +15,35 @@ namespace EscolaTCC.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Index(Aluno aluno)
+        {
+            try
+            {
+                AlunoDal alunoDal = new AlunoDal();
+
+                string retornoCadastro = alunoDal.CadastroAluno(aluno);
+
+                if (retornoCadastro == "Erro1")
+                {
+                    //CPF já cadastrado
+                    ViewData["ResultadoAluno"] = 1;
+                    return View();
+                }
+                else
+                {
+                    //Sucesso
+                    ViewData["ResultadoAluno"] = 2;
+                    return View();
+                }
+            }
+            catch
+            {
+                ViewData["ResultadoAluno"] = 3;
+                return View();
+            }
+
+        }
     }
 }

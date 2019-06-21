@@ -15,12 +15,10 @@ namespace EscolaTCC.Models
         [Display(Name = "Falta do dia")]
         public bool falta { get; set; }
 
-
         //Chaves Estrangeiras
-        //Associação
-        public Aluno cdAluno { get; set; }
+        public int cdAluno { get; set; }
 
-        public Materia cdMateria { get; set; }
+        public int cdMateria { get; set; }
 
     }
 }
