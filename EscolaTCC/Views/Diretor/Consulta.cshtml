@@ -1,0 +1,71 @@
+﻿@model IEnumerable<EscolaTCC.Models.BLL.Funcionario>
+
+@{
+    ViewData["Title"] = "Consulta de Diretores";
+}
+
+<h2>Consulta de Diretores</h2>
+
+<p>
+    <a asp-action="Index">Cadastrar novo Diretor</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cd_Func)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nm_Func)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.No_CpfFunc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.No_RgFunc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rg_DigFunc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.No_TelFunc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nm_EmailFunc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cd_Func)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nm_Func)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.No_CpfFunc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.No_RgFunc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rg_DigFunc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.No_TelFunc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nm_EmailFunc)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edicao", new { id = item.Cd_Func }) |
+                @Html.ActionLink("Detalhes", "Detalhe", new { id = item.Cd_Func }) |
+                @Html.ActionLink("Deletar", "Delecao", new {  id=item.Cd_Func })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

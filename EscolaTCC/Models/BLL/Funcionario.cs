@@ -16,11 +16,11 @@ namespace EscolaTCC.Models.BLL
 
         [Display(Name = "CPF")]
         [Required(ErrorMessage = "CPF deve ser informado!")]
-        public String No_CpfFunc { get; set; }
+        public Int64 No_CpfFunc { get; set; }
 
         [Display(Name = "RG")]
         [Required(ErrorMessage = "RG deve ser informado!")]
-        public int No_RgFunc { get; set; }
+        public Int64 No_RgFunc { get; set; }
 
         [Display(Name = "Dígito do RG")]
         [Required(ErrorMessage = "Último dígito do RG deve ser informado!")]
@@ -28,7 +28,7 @@ namespace EscolaTCC.Models.BLL
 
         [Display(Name = "Telefone")]
         [Required(ErrorMessage = "Telefone deve ser informado!")]
-        public String No_TelFunc { get; set; }
+        public Int64 No_TelFunc { get; set; }
 
         [Display(Name = "E-mail para contato")]
         [Required(ErrorMessage = "E-mail para contato deve ser informado!")]
@@ -50,7 +50,6 @@ namespace EscolaTCC.Models.BLL
         [Required(ErrorMessage = "E-mail para contato deve ser informado!")]
         public int No_CepFunc { get; set; }
 
-
-
+        
     }
 }

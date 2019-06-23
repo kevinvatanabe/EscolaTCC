@@ -2,6 +2,8 @@
 using EscolaTCC.Models.Data;
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace EscolaTCC.Models.DAL
 {
@@ -42,6 +44,68 @@ namespace EscolaTCC.Models.DAL
             con.desconectarBD();
 
             return sucesso2;
+        }
+
+        public List<Funcionario> SelectAll()
+        {
+            MySqlDataAdapter msda = new MySqlDataAdapter("SELECT * FROM tblFuncionario" +
+                                                         "INNER JOIN ", con.conectarBD());
+
+            DataSet ds = new DataSet();
+            msda.Fill(ds);
+
+            con.desconectarBD();
+
+            List<Funcionario> lista = new List<Funcionario>();
+            
+            foreach(DataRow dr in ds.Tables[0].Rows)
+            {
+                Funcionario item = new Funcionario();
+                item.Cd_Func = int.Parse(dr["cdFunc"].ToString());
+                item.Nm_Func = dr["nmFunc"].ToString();
+                item.No_CpfFunc = Int64.Parse(dr["noCpffunc"].ToString());
+                item.No_RgFunc = Int64.Parse(dr["noRgFunc"].ToString());
+                item.Rg_DigFunc = dr["Rg_DigFunc"].ToString();
+                item.No_TelFunc = Int64.Parse(dr["noTelFunc"].ToString());
+                item.Nm_EmailFunc = dr["nmEmailFunc"].ToString();
+                item.No_CepFunc = int.Parse(dr["noCepFunc"].ToString());
+                item.Dt_NascFunc = DateTime.Parse(dr["dtNascFunc"].ToString());
+                item.No_EndFunc = int.Parse(dr["noEndFunc"].ToString());
+                item.Ds_CompleFunc = dr["dsCompleFunc"].ToString();
+
+                lista.Add(item);
+            }
+
+            return lista;
+        }
+        public Funcionario SelectOne(int id)
+        {
+            MySqlDataAdapter msda = new MySqlDataAdapter("SELECT * FROM tblFuncionario WHERE cdFunc =" + id, con.conectarBD());
+
+            DataSet ds = new DataSet();
+            msda.Fill(ds);
+
+            con.desconectarBD();
+
+            List<Funcionario> lista = new List<Funcionario>();
+
+            Funcionario item = new Funcionario();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                item.Cd_Func = int.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.Nm_Func = ds.Tables[0].Rows[0]["nmFunc"].ToString();
+                item.No_CpfFunc = Int64.Parse(ds.Tables[0].Rows[0]["noCpffunc"].ToString());
+                item.No_RgFunc = Int64.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.Rg_DigFunc = ds.Tables[0].Rows[0]["cdFunc"].ToString();
+                item.No_TelFunc = Int64.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.Nm_EmailFunc = ds.Tables[0].Rows[0]["cdFunc"].ToString();
+                item.No_CepFunc = int.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.Dt_NascFunc = DateTime.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.No_EndFunc = int.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.Ds_CompleFunc = ds.Tables[0].Rows[0]["cdFunc"].ToString();
+            }
+
+            return item;
         }
     }
 }

@@ -1,0 +1,83 @@
+﻿@model EscolaTCC.Models.BLL.Funcionario
+
+@{
+    ViewData["Title"] = "Edição do Diretor";
+}
+
+<h2>Edicao</h2>
+
+<h4>Funcionario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edicao">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Cd_Func" class="control-label"></label>
+                <input asp-for="Cd_Func" class="form-control" />
+                <span asp-validation-for="Cd_Func" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nm_Func" class="control-label"></label>
+                <input asp-for="Nm_Func" class="form-control" />
+                <span asp-validation-for="Nm_Func" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_CpfFunc" class="control-label"></label>
+                <input asp-for="No_CpfFunc" class="form-control" />
+                <span asp-validation-for="No_CpfFunc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_RgFunc" class="control-label"></label>
+                <input asp-for="No_RgFunc" class="form-control" />
+                <span asp-validation-for="No_RgFunc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rg_DigFunc" class="control-label"></label>
+                <input asp-for="Rg_DigFunc" class="form-control" />
+                <span asp-validation-for="Rg_DigFunc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_TelFunc" class="control-label"></label>
+                <input asp-for="No_TelFunc" class="form-control" />
+                <span asp-validation-for="No_TelFunc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nm_EmailFunc" class="control-label"></label>
+                <input asp-for="Nm_EmailFunc" class="form-control" />
+                <span asp-validation-for="Nm_EmailFunc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dt_NascFunc" class="control-label"></label>
+                <input asp-for="Dt_NascFunc" class="form-control" />
+                <span asp-validation-for="Dt_NascFunc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_EndFunc" class="control-label"></label>
+                <input asp-for="No_EndFunc" class="form-control" />
+                <span asp-validation-for="No_EndFunc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ds_CompleFunc" class="control-label"></label>
+                <input asp-for="Ds_CompleFunc" class="form-control" />
+                <span asp-validation-for="Ds_CompleFunc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_CepFunc" class="control-label"></label>
+                <input asp-for="No_CepFunc" class="form-control" />
+                <span asp-validation-for="No_CepFunc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

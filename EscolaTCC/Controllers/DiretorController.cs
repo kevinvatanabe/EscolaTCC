@@ -69,5 +69,21 @@ namespace EscolaTCC.Controllers
             }
             return View();
         }
+
+
+        public IActionResult Consulta()
+        {
+            return View();
+        }
+
+        public IActionResult Delecao(int id)
+        {
+            return View();
+        }
+
+        public IActionResult Detalhe(int id)
+        {
+            return View();
+        }
     }
 }
