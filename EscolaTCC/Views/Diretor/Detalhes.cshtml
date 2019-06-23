@@ -1,10 +1,10 @@
 ﻿@model EscolaTCC.Models.BLL.Funcionario
 
 @{
-    ViewData["Title"] = "Detalhe";
+    ViewData["Title"] = "Detalhes";
 }
 
-<h2>Detalhe</h2>
+<h2>Detalhes</h2>
 
 <div>
     <h4>Funcionario</h4>
@@ -69,6 +69,30 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Ds_CompleFunc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.No_Salario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.No_Salario)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cd_Login)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cd_Login)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cd_Cargo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cd_Cargo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ds_Formacao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ds_Formacao)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.No_CepFunc)

@@ -73,15 +73,22 @@ namespace EscolaTCC.Controllers
 
         public IActionResult Consulta()
         {
+            FuncionarioDal funcDal = new FuncionarioDal();
+            
+            return View(funcDal.SelectAllDiretores());
+        }
+        public IActionResult Editar()
+        {
+
             return View();
         }
 
-        public IActionResult Delecao(int id)
+        public IActionResult Excluir(int id)
         {
             return View();
         }
 
-        public IActionResult Detalhe(int id)
+        public IActionResult Detalhes(int id)
         {
             return View();
         }

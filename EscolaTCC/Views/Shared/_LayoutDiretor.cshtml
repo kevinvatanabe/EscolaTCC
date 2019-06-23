@@ -32,10 +32,9 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+
     <!--Dropdown inside dropdown from W3Schools-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-
     <style>
         .dropdown-submenu {
             position: relative;
@@ -63,6 +62,7 @@
         });
     </script>
 
+
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -86,8 +86,8 @@
                             <li class="dropdown-submenu">
                                 <a class="dropdown-toggle test" role="button" tabindex="-1" aria-expanded="false" href="#" data-toggle="dropdown">Diretor<span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li>@Html.ActionLink("Cadastro", "Index", "Professor")</li>
-                                    <li>@Html.ActionLink("Consulta", "Consulta", "Professor")</li>
+                                    <li>@Html.ActionLink("Cadastro", "Index", "Diretor")</li>
+                                    <li>@Html.ActionLink("Consulta", "Consulta", "Diretor")</li>
                                 </ul>
                             </li>
                             <li class="dropdown-submenu">
@@ -147,13 +147,13 @@
                 <ul class="nav navbar-nav navbar-right">
 
                     <!--
-                    <form class="navbar-form navbar-left" role="search">
-                         <div class="form-group">
-                             <input type="text" class="form-control" placeholder="Digite o que você procura">
-                         </div>
-                     <button type="submit" class="btn btn-default">Pesquisar</button>
-                       </form>
-                  -->
+                      <form class="navbar-form navbar-left" role="search">
+                           <div class="form-group">
+                               <input type="text" class="form-control" placeholder="Digite o que você procura">
+                           </div>
+                       <button type="submit" class="btn btn-default">Pesquisar</button>
+                         </form>
+                    -->
 
                     <li class="dropdown">
                         <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown"><i class="fas fa-user-circle icon-bar" style="font-size: 1.20em; padding-right:15px;"></i>@TempData["Email"]<span class="caret"></span> </a>

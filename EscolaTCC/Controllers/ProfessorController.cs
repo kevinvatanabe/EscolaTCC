@@ -70,5 +70,26 @@ namespace EscolaTCC.Controllers
             }
             return View();
         }
+        public IActionResult Consulta()
+        {
+            FuncionarioDal funcDal = new FuncionarioDal();
+
+            return View(funcDal.SelectAllProfessores());
+        }
+        public IActionResult Editar()
+        {
+
+            return View();
+        }
+
+        public IActionResult Excluir(int id)
+        {
+            return View();
+        }
+
+        public IActionResult Detalhes(int id)
+        {
+            return View();
+        }
     }
 }

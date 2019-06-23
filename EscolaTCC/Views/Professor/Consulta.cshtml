@@ -1,19 +1,19 @@
 ﻿@model IEnumerable<EscolaTCC.Models.BLL.Funcionario>
 
 @{
-    ViewData["Title"] = "Consulta de Diretores";
+    ViewData["Title"] = "Consulta de Professores";
 }
 
-<h2>Consulta de Diretores</h2>
+<h2>Consulta de Professores</h2>
 
 <p>
-    <a asp-action="Index" style="margin-left:5%;">Cadastrar novo Diretor</a>
+    <a asp-action="Index" style="margin-left:5%;">Cadastrar novo Professor</a>
 </p>
 
 <div class="container">
     <form class="" style="display:block; margin:0; width:50%;" role="search">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Digite o CPF do Diretor" style="width:50%;">
+            <input type="text" class="form-control" placeholder="Digite o CPF do Professor" style="width:50%;">
             <button type="submit" class="btn btn-default">Pesquisar</button>
         </div>
     </form>

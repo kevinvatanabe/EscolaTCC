@@ -7,6 +7,7 @@ namespace EscolaTCC.Models.BLL
     {
         //Chave Primária
         [Key]
+        [Display(Name = "Código do Funcionário")]
         public int Cd_Func { get; set; }
 
         //Dados
@@ -44,6 +45,12 @@ namespace EscolaTCC.Models.BLL
 
         [Display(Name = "Complemento do Endereço")]
         public String Ds_CompleFunc { get; set; }
+
+        //Da tabela FuncCargo
+        public double No_Salario { get; set; }
+        public int Cd_Login { get; set; }
+        public int Cd_Cargo { get; set; }
+        public string Ds_Formacao { get; set; }
 
         // Foreign Key
         [Display(Name = "CEP")]

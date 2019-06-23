@@ -9,10 +9,10 @@ namespace EscolaTCC.Models.DAL
 {
     public class FuncionarioDal
     {
-        Conexao con = new Conexao();
-
         public string InsertFuncNovo(Funcionario func, FuncCargo funcCargo, Login login, int cdCargo)
         {
+            Conexao con = new Conexao();
+
             MySqlCommand cmd = new MySqlCommand
            (
            "CALL sp_InsertFuncNovo" +
@@ -39,17 +39,24 @@ namespace EscolaTCC.Models.DAL
             cmd.Parameters.AddWithValue("@v_nmEmail", MySqlDbType.VarChar).Value = login.NmEmail;
             cmd.Parameters.AddWithValue("@v_nmSenha", MySqlDbType.VarChar).Value = login.NmSenha;
 
-            string sucesso2 = Convert.ToString(cmd.ExecuteScalar());
+            string sucesso = Convert.ToString(cmd.ExecuteScalar());
 
             con.desconectarBD();
-
-            return sucesso2;
+            return sucesso;
         }
 
-        public List<Funcionario> SelectAll()
+        public List<Funcionario> SelectAllDiretores()
         {
-            MySqlDataAdapter msda = new MySqlDataAdapter("SELECT * FROM tblFuncionario" +
-                                                         "INNER JOIN ", con.conectarBD());
+            Conexao con = new Conexao();
+
+            MySqlDataAdapter msda = new MySqlDataAdapter
+           ("SELECT F.cdFunc, F.nmFunc, F.noCpfFunc, F.noRgFunc, F.Rg_DigFunc, F.noTelFunc, F.nmEmailFunc," +
+             "F.noCepFunc, F.dtNascFunc, F.noEndFunc, F.dsCompleFunc," +
+             "C.cdCargo, C.cdLogin, C.dsFormacao, C.noSalario "+
+             "FROM tblfuncionario F "+
+             "INNER JOIN tblFuncCargo C "+
+             "ON F.cdFunc = C.cdFunc "+
+             "WHERE C.cdCargo = 4;", con.conectarBD());
 
             DataSet ds = new DataSet();
             msda.Fill(ds);
@@ -72,16 +79,125 @@ namespace EscolaTCC.Models.DAL
                 item.Dt_NascFunc = DateTime.Parse(dr["dtNascFunc"].ToString());
                 item.No_EndFunc = int.Parse(dr["noEndFunc"].ToString());
                 item.Ds_CompleFunc = dr["dsCompleFunc"].ToString();
+                //tabela tblFuncCargo na BLL Funcionario
+                item.Cd_Cargo = int.Parse(dr["cdCargo"].ToString());
+                item.Cd_Login = int.Parse(dr["cdLogin"].ToString());
+                item.No_Salario = double.Parse(dr["noSalario"].ToString());
+                item.Ds_Formacao = dr["dsFormacao"].ToString();
+
 
                 lista.Add(item);
             }
 
             return lista;
         }
-        public Funcionario SelectOne(int id)
-        {
-            MySqlDataAdapter msda = new MySqlDataAdapter("SELECT * FROM tblFuncionario WHERE cdFunc =" + id, con.conectarBD());
 
+        public List<Funcionario> SelectAllProfessores()
+        {
+            Conexao con = new Conexao();
+
+            MySqlDataAdapter msda = new MySqlDataAdapter
+           ("SELECT F.cdFunc, F.nmFunc, F.noCpfFunc, F.noRgFunc, F.Rg_DigFunc, F.noTelFunc, F.nmEmailFunc," +
+             "F.noCepFunc, F.dtNascFunc, F.noEndFunc, F.dsCompleFunc," +
+             "C.cdCargo, C.cdLogin, C.dsFormacao, C.noSalario " +
+             "FROM tblfuncionario F " +
+             "INNER JOIN tblFuncCargo C " +
+             "ON F.cdFunc = C.cdFunc " +
+             "WHERE C.cdCargo = 1;", con.conectarBD());
+
+            DataSet ds = new DataSet();
+            msda.Fill(ds);
+
+            con.desconectarBD();
+
+            List<Funcionario> lista = new List<Funcionario>();
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                Funcionario item = new Funcionario();
+                item.Cd_Func = int.Parse(dr["cdFunc"].ToString());
+                item.Nm_Func = dr["nmFunc"].ToString();
+                item.No_CpfFunc = Int64.Parse(dr["noCpffunc"].ToString());
+                item.No_RgFunc = Int64.Parse(dr["noRgFunc"].ToString());
+                item.Rg_DigFunc = dr["Rg_DigFunc"].ToString();
+                item.No_TelFunc = Int64.Parse(dr["noTelFunc"].ToString());
+                item.Nm_EmailFunc = dr["nmEmailFunc"].ToString();
+                item.No_CepFunc = int.Parse(dr["noCepFunc"].ToString());
+                item.Dt_NascFunc = DateTime.Parse(dr["dtNascFunc"].ToString());
+                item.No_EndFunc = int.Parse(dr["noEndFunc"].ToString());
+                item.Ds_CompleFunc = dr["dsCompleFunc"].ToString();
+                //tabela tblFuncCargo na BLL Funcionario
+                item.Cd_Cargo = int.Parse(dr["cdCargo"].ToString());
+                item.Cd_Login = int.Parse(dr["cdLogin"].ToString());
+                item.No_Salario = int.Parse(dr["noSalario"].ToString());
+                item.Ds_Formacao = dr["dsFormacao"].ToString();
+
+
+                lista.Add(item);
+            }
+
+            return lista;
+        }
+
+        public List<Funcionario> SelectAllSecretaria()
+        {
+            Conexao con = new Conexao();
+
+            MySqlDataAdapter msda = new MySqlDataAdapter
+            ("SELECT F.cdFunc, F.nmFunc, F.noCpfFunc, F.noRgFunc, F.Rg_DigFunc, F.noTelFunc, F.nmEmailFunc," +
+             "F.noCepFunc, F.dtNascFunc, F.noEndFunc, F.dsCompleFunc," +
+             "C.cdCargo, C.cdLogin, C.dsFormacao, C.noSalario " +
+             "FROM tblfuncionario F " +
+             "INNER JOIN tblFuncCargo C " +
+             "ON F.cdFunc = C.cdFunc " +
+             "WHERE C.cdCargo = 3;", con.conectarBD());
+
+            DataSet ds = new DataSet();
+            msda.Fill(ds);
+
+            con.desconectarBD();
+
+            List<Funcionario> lista = new List<Funcionario>();
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                Funcionario item = new Funcionario();
+                item.Cd_Func = int.Parse(dr["cdFunc"].ToString());
+                item.Nm_Func = dr["nmFunc"].ToString();
+                item.No_CpfFunc = Int64.Parse(dr["noCpffunc"].ToString());
+                item.No_RgFunc = Int64.Parse(dr["noRgFunc"].ToString());
+                item.Rg_DigFunc = dr["Rg_DigFunc"].ToString();
+                item.No_TelFunc = Int64.Parse(dr["noTelFunc"].ToString());
+                item.Nm_EmailFunc = dr["nmEmailFunc"].ToString();
+                item.No_CepFunc = int.Parse(dr["noCepFunc"].ToString());
+                item.Dt_NascFunc = DateTime.Parse(dr["dtNascFunc"].ToString());
+                item.No_EndFunc = int.Parse(dr["noEndFunc"].ToString());
+                item.Ds_CompleFunc = dr["dsCompleFunc"].ToString();
+                //tabela tblFuncCargo na BLL Funcionario
+                item.Cd_Cargo = int.Parse(dr["cdCargo"].ToString());
+                item.Cd_Login = int.Parse(dr["cdLogin"].ToString());
+                item.No_Salario = int.Parse(dr["noSalario"].ToString());
+                item.Ds_Formacao = dr["dsFormacao"].ToString();
+
+
+                lista.Add(item);
+            }
+
+            return lista;
+        }
+
+        public Funcionario SelectOneDiretor(Int64 cpf)
+        {
+            Conexao con = new Conexao();
+
+            MySqlDataAdapter msda = new MySqlDataAdapter
+            ("SELECT F.cdFunc, F.nmFunc, F.noCpfFunc, F.noRgFunc, F.Rg_DigFunc, F.noTelFunc, F.nmEmailFunc," +
+             "F.noCepFunc, F.dtNascFunc, F.noEndFunc, F.dsCompleFunc," +
+             "C.cdCargo, C.cdLogin, C.dsFormacao, C.noSalario " +
+             "FROM tblfuncionario F " +
+             "INNER JOIN tblFuncCargo C " +
+             "ON F.cdFunc = C.cdFunc " +
+             "WHERE C.cdCargo = 4 AND F.noCpfFunc = " + cpf + ";", con.conectarBD());
             DataSet ds = new DataSet();
             msda.Fill(ds);
 
@@ -103,6 +219,97 @@ namespace EscolaTCC.Models.DAL
                 item.Dt_NascFunc = DateTime.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
                 item.No_EndFunc = int.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
                 item.Ds_CompleFunc = ds.Tables[0].Rows[0]["cdFunc"].ToString();
+                //tabela tblFuncCargo na BLL Funcionario
+                item.Cd_Cargo = int.Parse(ds.Tables[0].Rows[0]["cdCargo"].ToString());
+                item.Cd_Login = int.Parse(ds.Tables[0].Rows[0]["cdLogin"].ToString());
+                item.No_Salario = double.Parse(ds.Tables[0].Rows[0]["noSalario"].ToString());
+                item.Ds_Formacao = ds.Tables[0].Rows[0]["dsFormacao"].ToString();
+            }
+
+            return item;
+        }
+
+        public Funcionario SelectOneProfessor(Int64 cpf)
+        {
+            Conexao con = new Conexao();
+
+            MySqlDataAdapter msda = new MySqlDataAdapter
+            ("SELECT F.cdFunc, F.nmFunc, F.noCpfFunc, F.noRgFunc, F.Rg_DigFunc, F.noTelFunc, F.nmEmailFunc," +
+             "F.noCepFunc, F.dtNascFunc, F.noEndFunc, F.dsCompleFunc," +
+             "C.cdCargo, C.cdLogin, C.dsFormacao, C.noSalario " +
+             "FROM tblfuncionario F " +
+             "INNER JOIN tblFuncCargo C " +
+             "ON F.cdFunc = C.cdFunc " +
+             "WHERE C.cdCargo = 1 AND F.noCpfFunc = " + cpf + ";", con.conectarBD());
+            DataSet ds = new DataSet();
+            msda.Fill(ds);
+
+            con.desconectarBD();
+
+            List<Funcionario> lista = new List<Funcionario>();
+
+            Funcionario item = new Funcionario();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                item.Cd_Func = int.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.Nm_Func = ds.Tables[0].Rows[0]["nmFunc"].ToString();
+                item.No_CpfFunc = Int64.Parse(ds.Tables[0].Rows[0]["noCpffunc"].ToString());
+                item.No_RgFunc = Int64.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.Rg_DigFunc = ds.Tables[0].Rows[0]["cdFunc"].ToString();
+                item.No_TelFunc = Int64.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.Nm_EmailFunc = ds.Tables[0].Rows[0]["cdFunc"].ToString();
+                item.No_CepFunc = int.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.Dt_NascFunc = DateTime.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.No_EndFunc = int.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.Ds_CompleFunc = ds.Tables[0].Rows[0]["cdFunc"].ToString();
+                //tabela tblFuncCargo na BLL Funcionario
+                item.Cd_Cargo = int.Parse(ds.Tables[0].Rows[0]["cdCargo"].ToString());
+                item.Cd_Login = int.Parse(ds.Tables[0].Rows[0]["cdLogin"].ToString());
+                item.No_Salario = double.Parse(ds.Tables[0].Rows[0]["noSalario"].ToString());
+                item.Ds_Formacao = ds.Tables[0].Rows[0]["dsFormacao"].ToString();
+            }
+
+            return item;
+        }
+
+        public Funcionario SelectOneSecretaria(Int64 cpf)
+        {
+            Conexao con = new Conexao();
+
+            MySqlDataAdapter msda = new MySqlDataAdapter
+            ("SELECT F.cdFunc, F.nmFunc, F.noCpfFunc, F.noRgFunc, F.Rg_DigFunc, F.noTelFunc, F.nmEmailFunc," +
+             "F.noCepFunc, F.dtNascFunc, F.noEndFunc, F.dsCompleFunc," +
+             "C.cdCargo, C.cdLogin, C.dsFormacao, C.noSalario " +
+             "FROM tblfuncionario F " +
+             "INNER JOIN tblFuncCargo C " +
+             "ON F.cdFunc = C.cdFunc " +
+             "WHERE C.cdCargo = 3 AND F.noCpfFunc = " + cpf + ";", con.conectarBD());
+            DataSet ds = new DataSet();
+            msda.Fill(ds);
+
+            con.desconectarBD();
+
+            List<Funcionario> lista = new List<Funcionario>();
+
+            Funcionario item = new Funcionario();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                item.Cd_Func = int.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.Nm_Func = ds.Tables[0].Rows[0]["nmFunc"].ToString();
+                item.No_CpfFunc = Int64.Parse(ds.Tables[0].Rows[0]["noCpffunc"].ToString());
+                item.No_RgFunc = Int64.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.Rg_DigFunc = ds.Tables[0].Rows[0]["cdFunc"].ToString();
+                item.No_TelFunc = Int64.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.Nm_EmailFunc = ds.Tables[0].Rows[0]["cdFunc"].ToString();
+                item.No_CepFunc = int.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.Dt_NascFunc = DateTime.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.No_EndFunc = int.Parse(ds.Tables[0].Rows[0]["cdFunc"].ToString());
+                item.Ds_CompleFunc = ds.Tables[0].Rows[0]["cdFunc"].ToString();
+                //tabela tblFuncCargo na BLL Funcionario
+                item.Cd_Cargo = int.Parse(ds.Tables[0].Rows[0]["cdCargo"].ToString());
+                item.Cd_Login = int.Parse(ds.Tables[0].Rows[0]["cdLogin"].ToString());
+                item.No_Salario = double.Parse(ds.Tables[0].Rows[0]["noSalario"].ToString());
+                item.Ds_Formacao = ds.Tables[0].Rows[0]["dsFormacao"].ToString();
             }
 
             return item;

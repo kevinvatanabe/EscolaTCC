@@ -1,16 +1,16 @@
 ﻿@model EscolaTCC.Models.BLL.Funcionario
 
 @{
-    ViewData["Title"] = "Edição do Diretor";
+    ViewData["Title"] = "Editar";
 }
 
-<h2>Edicao</h2>
+<h2>Editar</h2>
 
 <h4>Funcionario</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edicao">
+        <form asp-action="Editar">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Cd_Func" class="control-label"></label>
@@ -63,6 +63,26 @@
                 <span asp-validation-for="Ds_CompleFunc" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="No_Salario" class="control-label"></label>
+                <input asp-for="No_Salario" class="form-control" />
+                <span asp-validation-for="No_Salario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cd_Login" class="control-label"></label>
+                <input asp-for="Cd_Login" class="form-control" />
+                <span asp-validation-for="Cd_Login" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cd_Cargo" class="control-label"></label>
+                <input asp-for="Cd_Cargo" class="form-control" />
+                <span asp-validation-for="Cd_Cargo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ds_Formacao" class="control-label"></label>
+                <input asp-for="Ds_Formacao" class="form-control" />
+                <span asp-validation-for="Ds_Formacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="No_CepFunc" class="control-label"></label>
                 <input asp-for="No_CepFunc" class="form-control" />
                 <span asp-validation-for="No_CepFunc" class="text-danger"></span>
@@ -78,6 +98,3 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

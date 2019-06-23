@@ -31,40 +31,42 @@
 <p>
     <a asp-action="Cadastro" style="margin-left:5%;">Cadastrar nova turma</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.cdTurma)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.nmTurma)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.dsSerie)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="container">
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.cdTurma)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nmTurma)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.dsSerie)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.cdTurma }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.cdTurma }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.cdTurma })
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.cdTurma)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.nmTurma)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.dsSerie)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cdTurma)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nmTurma)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dsSerie)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.cdTurma }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.cdTurma }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.cdTurma })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

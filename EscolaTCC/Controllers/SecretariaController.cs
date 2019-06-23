@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using EscolaTCC.Models;
 using EscolaTCC.Models.BLL;
 using EscolaTCC.Models.DAL;
@@ -71,6 +68,28 @@ namespace EscolaTCC.Controllers
                 }
 
             }
+            return View();
+        }
+
+        public IActionResult Consulta()
+        {
+            FuncionarioDal funcDal = new FuncionarioDal();
+
+            return View(funcDal.SelectAllSecretaria());
+        }
+        public IActionResult Editar()
+        {
+
+            return View();
+        }
+
+        public IActionResult Excluir(int id)
+        {
+            return View();
+        }
+
+        public IActionResult Detalhes(int id)
+        {
             return View();
         }
     }
