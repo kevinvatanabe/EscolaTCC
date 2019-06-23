@@ -32,15 +32,6 @@
 
     }
 }
-<script>
-    function MascaraCep(cep) {
-        if (mascaraInteiro(cep) == false) {
-            event.returnValue = false;
-        }
-        return formataCampo(cep, '00.000-000', event);
-    }
-</script>
-
 <h2>Index de Diretores</h2>
 <hr />
     <div style="width:100%">
@@ -57,6 +48,8 @@
 
                 <div class="form-group">
                     <label asp-for="No_CpfFunc" class="control-label"></label>
+                    <ej:MaskEdit ID="mask" MaskFormat="999.999.999-99" Value="23828638899" CustomCharacter="r" 
+                                 HidePromptOnLeave="true" InputMode="Text" runat="server"> </ej:MaskEdit>
                     <input asp-for="No_CpfFunc" class="form-control" name="Cpf" id="Cpf" />
                     <span asp-validation-for="No_CpfFunc" class="text-danger"></span>
                 </div>

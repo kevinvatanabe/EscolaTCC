@@ -29,11 +29,10 @@ namespace EscolaTCC.Controllers
                 func.No_CepFunc = Convert.ToInt32(frm["Cep"]);
 
                 func.Nm_Func = Convert.ToString(frm["Nome"]);
-                func.No_CpfFunc = Convert.ToString(frm["Cpf"]);
-                func.No_CpfFunc = Convert.ToString(frm["Cpf"]);
-                func.No_RgFunc = Convert.ToInt32(frm["Rg"]);
+                func.No_CpfFunc = Int64.Parse(frm["Cpf"]);
+                func.No_RgFunc =Int64.Parse(frm["Rg"]);
                 func.Rg_DigFunc = Convert.ToString(frm["Dig"]);
-                func.No_TelFunc = Convert.ToString(frm["Tel"]);
+                func.No_TelFunc = Int64.Parse(frm["Tel"]);
                 func.Nm_EmailFunc = Convert.ToString(frm["Email"]);
                 func.Dt_NascFunc = Convert.ToDateTime(frm["Nasc"]);
                 func.No_EndFunc = Convert.ToInt32(frm["Numero"]);
