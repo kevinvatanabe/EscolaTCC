@@ -1,0 +1,137 @@
+﻿@model EscolaTCC.Models.Responsavel
+@{
+    ViewData["Title"] = "Edição de Responsáveis";
+
+    //Talvez essa lógica seja deprimente, porém é um bom desencargo de consciência.
+    int resposta = Convert.ToInt32(ViewData["AlterResponsavel"]);
+
+    if (resposta == 1)
+    {
+        <script type="text/JavaScript">
+            alert('CPF já cadastrado!');
+
+        </script>
+    }
+    else if (resposta == 2)
+    {
+        <script type="text/JavaScript">
+            alert('E-mail da conta já cadastrado!');
+
+        </script>
+    }
+    else if (resposta == 3)
+    {
+        <script type="text/JavaScript">
+            alert('CEP não cadastrado!');
+
+        </script>
+    }
+    else if (resposta == 4)
+    {
+        <script type="text/JavaScript">
+            alert('Cadastro feito com sucesso!');
+
+        </script>
+    }
+    else { }
+}
+
+<h2>Editar de Responsável</h2>
+<hr />
+<div style="width:100%">
+    <fieldset class="well" style="display:block; margin:0 auto; width:70%;">
+        <legend>Edição de Responsáveis</legend>
+        <form asp-action="Editar" style="display:block; margin:0 auto; width:70%;">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Cd_Resp" class="control-label"></label>
+                <input asp-for="Cd_Resp" class="form-control" />
+                <span asp-validation-for="Cd_Resp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nm_Resp" class="control-label"></label>
+                <input asp-for="Nm_Resp" class="form-control" />
+                <span asp-validation-for="Nm_Resp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dt_NascResp" class="control-label"></label>
+                <input asp-for="Dt_NascResp" class="form-control" />
+                <span asp-validation-for="Dt_NascResp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_CpfResp" class="control-label"></label>
+                <input asp-for="No_CpfResp" class="form-control" />
+                <span asp-validation-for="No_CpfResp" class="text-danger"></span>
+            </div>
+
+            <div class="form-inline">
+                <label asp-for="No_RgResp" class="control-label"></label>
+                <input asp-for="No_RgResp" class="form-control" />
+                <span asp-validation-for="No_RgResp" class="text-danger"></span>
+
+                <label asp-for="Dig_RgResp" class="control-label"></label>
+                <input asp-for="Dig_RgResp" class="form-control" style="width:50px" />
+                <span asp-validation-for="Dig_RgResp" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Cep_End" class="control-label"></label>
+                <input asp-for="Cep_End" class="form-control" />
+                <span asp-validation-for="Cep_End" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_EndResp" class="control-label"></label>
+                <input asp-for="No_EndResp" class="form-control" />
+                <span asp-validation-for="No_EndResp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ds_CompleResp" class="control-label"></label>
+                <input asp-for="Ds_CompleResp" class="form-control" />
+                <span asp-validation-for="Ds_CompleResp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nm_EmailResp" class="control-label"></label>
+                <input asp-for="Nm_EmailResp" class="form-control" />
+                <span asp-validation-for="Nm_EmailResp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_TelResp" class="control-label"></label>
+                <input asp-for="No_TelResp" class="form-control" />
+                <span asp-validation-for="No_TelResp" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Cd_LoginResp" class="control-label"></label>
+                <input asp-for="Cd_LoginResp" class="form-control" />
+                <span asp-validation-for="Cd_LoginResp" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Nm_EmailRespConta" class="control-label"></label>
+                <input asp-for="Nm_EmailRespConta" class="form-control" />
+                <span asp-validation-for="Nm_EmailRespConta" class="text-danger"></span>
+            </div>
+
+            <div class="form-inline">
+                <label asp-for="Nm_SenhaResp" class="control-label"></label>
+                <input asp-for="Nm_SenhaResp" type="password" class="form-control" style="width:30%" />
+                <span asp-validation-for="Nm_SenhaResp" class="text-danger"></span>
+
+                <label asp-for="Nm_RepetirSenhaResp" class="control-label"></label>
+                <input asp-for="Nm_RepetirSenhaResp" type="password" class="form-control" style="width:30%" />
+                <span asp-validation-for="Nm_RepetirSenhaResp" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="text-align:center;">
+                <input type="submit" value="Atualizar" class="btn btn-success" />
+            </div>
+        </form>
+            <div>
+                <a asp-controller="Responsavel" asp-action="Consulta" style="margin-left:10%;">Voltar para lista</a>
+            </div>
+    </fieldset>
+</div>
+
+

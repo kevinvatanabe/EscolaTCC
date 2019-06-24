@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,11 +10,12 @@ namespace EscolaTCC.Models.DAL
 {
     public class ResponsavelDal
     {
-        Conexao con = new Conexao();
-        //CRUD
+      
               
         public string CadastroResponsavel(Responsavel resp)
         {
+            Conexao con = new Conexao();
+
             MySqlCommand cmd = new MySqlCommand
            ("CALL sp_InsertResponsavel(" +
 
@@ -43,11 +45,100 @@ namespace EscolaTCC.Models.DAL
             cmd.Parameters.Add("@Cd_Autorizacao", MySqlDbType.Int32).Value = resp.Cd_Autorizacao;
 
 
-            string sucesso2 = Convert.ToString(cmd.ExecuteScalar());
+            string sucesso = Convert.ToString(cmd.ExecuteScalar());
 
             con.desconectarBD();
 
-            return sucesso2;
+            return sucesso;
+        }
+
+        public List<Responsavel> SelectAllResponsaveis()
+        {
+            Conexao con = new Conexao();
+
+            MySqlDataAdapter msda = new MySqlDataAdapter
+            ("SELECT R.*,"+
+             "L.* "+
+             "FROM tblResponsavel R " +
+             "INNER JOIN tblLogin L "+
+             "ON L.cdLogin = R.cdLoginResp; ", con.conectarBD());
+
+            DataSet ds = new DataSet();
+            msda.Fill(ds);
+
+            con.desconectarBD();
+
+            List<Responsavel> lista = new List<Responsavel>();
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                Responsavel item = new Responsavel();
+
+                item.Cd_Resp = int.Parse(dr["cdResp"].ToString());
+                item.Nm_Resp = dr["nmResp"].ToString();
+                item.No_CpfResp = Int64.Parse(dr["noCpfResp"].ToString());
+                item.No_RgResp = Int64.Parse(dr["noRgResp"].ToString());
+                item.Dig_RgResp = dr["dig_RgResp"].ToString();
+                item.No_TelResp = Int64.Parse(dr["noTelResp"].ToString());
+                item.Nm_EmailResp = dr["nmEmailResp"].ToString();
+                item.Dt_NascResp = DateTime.Parse(dr["dtNascResp"].ToString());
+                item.Cep_End = Int64.Parse(dr["noCepResp"].ToString());
+                item.No_EndResp = int.Parse(dr["noEndResp"].ToString());
+                item.Ds_CompleResp = dr["dsCompleResp"].ToString();
+                //da tblLogin
+                item.Cd_LoginResp = int.Parse(dr["cdLoginResp"].ToString());          
+                item.Nm_EmailRespConta = dr["nmEmail"].ToString();
+                item.Nm_SenhaResp = dr["nmSenha"].ToString();
+
+                lista.Add(item);
+            }
+            return lista;
+        }
+
+        public Responsavel SelectOneResponsavel(int cdResp)
+        {
+            Conexao con = new Conexao();
+
+            MySqlDataAdapter msda = new MySqlDataAdapter
+             ("SELECT R.*," +
+              "L.* " +
+              "FROM tblResponsavel R " +
+              "INNER JOIN tblLogin L " +
+              "ON L.cdLogin = R.cdLoginResp " +
+              "WHERE R.cdResp = " + cdResp + ";", con.conectarBD());
+
+            DataSet ds = new DataSet();
+            msda.Fill(ds);
+
+            con.desconectarBD();
+
+            List<Responsavel> lista = new List<Responsavel>();
+
+            Responsavel item = new Responsavel();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                item.Cd_Resp = int.Parse(ds.Tables[0].Rows[0]["cdResp"].ToString());
+                item.Nm_Resp = ds.Tables[0].Rows[0]["nmResp"].ToString();
+                item.No_CpfResp = Int64.Parse(ds.Tables[0].Rows[0]["noCpfResp"].ToString());
+                item.No_RgResp = Int64.Parse(ds.Tables[0].Rows[0]["noRgResp"].ToString());
+                item.Dig_RgResp = ds.Tables[0].Rows[0]["dig_RgResp"].ToString();
+                item.No_TelResp = Int64.Parse(ds.Tables[0].Rows[0]["noTelResp"].ToString());
+                item.Nm_EmailResp = ds.Tables[0].Rows[0]["nmEmailResp"].ToString();
+                item.Dt_NascResp = DateTime.Parse(ds.Tables[0].Rows[0]["dtNascResp"].ToString());
+                item.Cep_End = Int64.Parse(ds.Tables[0].Rows[0]["noCepResp"].ToString());
+                item.No_EndResp = int.Parse(ds.Tables[0].Rows[0]["noEndResp"].ToString());
+                item.Ds_CompleResp = ds.Tables[0].Rows[0]["dsCompleResp"].ToString();
+                //tabela tblLogin
+                item.Cd_LoginResp = int.Parse(ds.Tables[0].Rows[0]["cdLoginResp"].ToString());
+                item.Nm_EmailRespConta = ds.Tables[0].Rows[0]["nmEmail"].ToString();
+                item.Nm_SenhaResp = ds.Tables[0].Rows[0]["nmSenha"].ToString();
+            }
+            return item;
+        }
+
+        public string AlterResponsavel(Responsavel resp)
+        {
+
         }
     }
 }

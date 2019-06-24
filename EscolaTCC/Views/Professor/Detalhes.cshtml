@@ -1,108 +1,135 @@
 ﻿@model EscolaTCC.Models.BLL.Funcionario
 
 @{
-    ViewData["Title"] = "Detalhes";
+    ViewData["Title"] = "Detalhes do Professor";
 }
 
-<h2>Detalhes</h2>
+<h2>Detalhes do Professor</h2>
+<div class="container">
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Cd_Func)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cd_Func)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Nm_Func)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nm_Func)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.No_CpfFunc)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.No_CpfFunc)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.No_RgFunc)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.No_RgFunc)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Rg_DigFunc)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Rg_DigFunc)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.No_TelFunc)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.No_TelFunc)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Nm_EmailFunc)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nm_EmailFunc)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Dt_NascFunc)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Dt_NascFunc)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.No_CepFunc)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.No_CepFunc)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.No_EndFunc)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.No_EndFunc)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Ds_CompleFunc)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Ds_CompleFunc)
+            </dd>
 
-<div>
-    <h4>Funcionario</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Cd_Func)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Cd_Func)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Nm_Func)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Nm_Func)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.No_CpfFunc)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.No_CpfFunc)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.No_RgFunc)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.No_RgFunc)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Rg_DigFunc)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Rg_DigFunc)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.No_TelFunc)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.No_TelFunc)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Nm_EmailFunc)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Nm_EmailFunc)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Dt_NascFunc)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Dt_NascFunc)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.No_EndFunc)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.No_EndFunc)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Ds_CompleFunc)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Ds_CompleFunc)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.No_Salario)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.No_Salario)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Cd_Login)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Cd_Login)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Cd_Cargo)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Cd_Cargo)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Ds_Formacao)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Ds_Formacao)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.No_CepFunc)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.No_CepFunc)
-        </dd>
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
+            <h5>Informações relativas ao Cargo de Diretor</h5>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.No_Salario)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.No_Salario)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cd_Login)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cd_Login)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cd_Cargo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cd_Cargo)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Ds_Formacao)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Ds_Formacao)
+            </dd>
+
+            <h5>Informações relativas ao Login</h5>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cd_Login)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cd_Login)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Nm_Email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nm_Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nm_Senha)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nm_Senha)
+            </dd>
+
+        </dl>
+    </div>
+    <div>
+        @Html.ActionLink("Editar", "Editar", new { id = Model.Cd_Func }, new { @class = "btn btn-success" })
+        <a asp-action="Consulta" class="btn btn-default">Voltar para lista</a>
+    </div>
+
 </div>

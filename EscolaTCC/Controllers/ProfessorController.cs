@@ -76,20 +76,71 @@ namespace EscolaTCC.Controllers
 
             return View(funcDal.SelectAllProfessores());
         }
-        public IActionResult Editar()
+
+        [HttpGet]
+        public IActionResult Editar(int id)
         {
+            FuncionarioDal funcDal = new FuncionarioDal();
+
+            return View(funcDal.SelectOneProfessor(id));
+        }
+
+        [HttpPost]
+        public IActionResult Editar(Funcionario func)
+        {
+            try
+            {
+                FuncionarioDal funcDal = new FuncionarioDal();
+                string retornoAlteracao = funcDal.AlterProfessor(func);
+
+                if (retornoAlteracao == "Sim")
+                {
+                    //Alteração bem sucedida
+                    TempData["ResultadoAlterProfessor"] = 1;
+                    return View();
+                }
+                else if (retornoAlteracao != "Sim")
+                {
+                    //Erro no CPF repetido ou e-mail da conta repetido
+                    TempData["ResultadoAlterProfessor"] = 2;
+                    return View();
+                }
+                else { }
+
+            }
+            catch
+            {
+                return View();
+            }
 
             return View();
         }
-
-        public IActionResult Excluir(int id)
+        public IActionResult Excluir(int id, int idLogin)
         {
-            return View();
-        }
+            try
+            {
+                //Para excluir um professor será necessário deletar mais registros de outras tabelas
+                //Somente se este estiver cadastrado em, por exemplo, tblmatprof
+                FuncionarioDal funcDal = new FuncionarioDal();
+                funcDal.DeleteFuncionario(id, idLogin);
+
+                ViewData["ExclusaoProfessor"] = 1;
+
+                return RedirectToAction(nameof(Consulta));
+            }
+            catch
+            {
+                ViewData["ExclusaoProfessor"] = 2;
+                return RedirectToAction(nameof(Consulta));
+            }
+
+        } 
 
         public IActionResult Detalhes(int id)
         {
-            return View();
+            FuncionarioDal funcDal = new FuncionarioDal();
+
+            return View(funcDal.SelectOneProfessor(id));
         }
     }
 }

@@ -56,5 +56,79 @@ namespace EscolaTCC.Controllers
                 return View();
             }
         }
+
+        public IActionResult Consulta()
+        {
+            ResponsavelDal funcDal = new ResponsavelDal();
+
+            return View(funcDal.SelectAllResponsaveis());
+        }
+
+        [HttpGet]
+        public IActionResult Editar(int id)
+        {
+            ResponsavelDal funcDal = new ResponsavelDal();
+
+            return View(funcDal.SelectOneResponsavel(id));
+        }
+
+        [HttpPost]
+        public IActionResult Editar(Responsavel resp)
+        {
+            try
+            {
+                ResponsavelDal funcDal = new ResponsavelDal();
+                string retornoAlteracao = funcDal.AlterResponsavel(resp);
+
+                if (retornoAlteracao == "Sim")
+                {
+                    //Alteração bem sucedida
+                    TempData["ResultadoAlterResponsavel"] = 1;
+                    return View();
+                }
+                else if (retornoAlteracao != "Sim")
+                {
+                    //Erro no CPF repetido ou e-mail da conta repetido
+                    TempData["ResultadoAlterResponsavel"] = 2;
+                    return View();
+                }
+                else { }
+
+            }
+            catch
+            {
+                return View();
+            }
+            
+            return View();
+        }
+
+        public IActionResult Excluir(int id, int idLogin)
+        {
+            try
+            {
+                ResponsavelDal funcDal = new ResponsavelDal();
+                /*
+                funcDal.DeleteFuncionario(id, idLogin);
+
+                ViewData["ExclusaoDiretor"] = 1;
+                */
+                return RedirectToAction(nameof(Consulta));
+            }
+            catch
+            {   /*
+                ViewData["ExclusaoDiretor"] = 2;
+                */
+                return RedirectToAction(nameof(Consulta));
+            }
+
+        }
+
+        public IActionResult Detalhes(int id)
+        {
+            ResponsavelDal funcDal = new ResponsavelDal();
+
+            return View(funcDal.SelectOneResponsavel(id));
+        }
     }
 }

@@ -2,6 +2,25 @@
 
 @{
     ViewData["Title"] = "Consulta de Professores";
+
+    //Talvez essa lógica seja deprimente, porém é um bom desencargo de consciência.
+    int resposta = Convert.ToInt32(ViewData["ExclusaoProfessor"]);
+
+    if (resposta == 1)
+    {
+        <script type="text/JavaScript">
+            alert('Exclusão feita com sucesso!');
+
+        </script>
+    }
+    else if (resposta == 2)
+    {
+        <script type="text/JavaScript">
+            alert('Erro na exclusão!');
+
+        </script>
+    }
+    else { }
 }
 
 <h2>Consulta de Professores</h2>
@@ -63,7 +82,7 @@
                     <td>
                         @Html.ActionLink("Editar", "Editar", new { id = item.Cd_Func }, new { @class = "btn btn-success" })
                         @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Cd_Func }, new { @class = "btn btn-default" })
-                        @Html.ActionLink("Excluir", "Excluir", new { id = item.Cd_Func }, new { @class = "btn btn-danger" })
+                        @Html.ActionLink("Excluir", "Excluir", new { id = item.Cd_Func, idLogin = item.Cd_Login }, new { @class = "btn btn-danger" })
                     </td>
                 </tr>
             }

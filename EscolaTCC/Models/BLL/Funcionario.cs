@@ -47,12 +47,19 @@ namespace EscolaTCC.Models.BLL
         public String Ds_CompleFunc { get; set; }
 
         //Da tabela FuncCargo
+        [Display(Name = "Salário")]
         public double No_Salario { get; set; }
-        public int Cd_Login { get; set; }
+
+        [Display(Name = "Código do Cargo")]
         public int Cd_Cargo { get; set; }
+
+        [Display(Name = "Descrição da Formação")]
         public string Ds_Formacao { get; set; }
 
         //Para a tabela Login
+        [Display(Name = "Código do Login")]
+        public int Cd_Login { get; set; }
+
         [Display(Name = "E-mail da conta")]
         [Required(ErrorMessage = "E-mail da conta deve ser informado!")]
         public string Nm_Email { get; set; }

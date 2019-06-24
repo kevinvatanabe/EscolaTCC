@@ -68,8 +68,10 @@ namespace EscolaTCC.Models
         public int Cd_LoginResp { get; set; }
 
         [Key]
+        [Display(Name = "Código do responsável")]
         public int Cd_Resp { get; set; }
 
+        [Display(Name = "Código de Autorização")]
         public int Cd_Autorizacao { get; set; }
     }
 }

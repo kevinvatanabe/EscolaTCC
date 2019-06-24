@@ -1,0 +1,78 @@
+﻿@model IEnumerable<EscolaTCC.Models.Responsavel>
+
+@{
+    ViewData["Title"] = "Consulta";
+}
+
+<h2>Consulta de Responsáveis</h2>
+
+<p>
+    <a asp-action="Index" style="margin-left:5%;">Cadastrar novo Responsável</a>
+</p>
+
+<div class="container">
+    <form class="" style="display:block; margin:0; width:50%;" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Digite o CPF do Responsável" style="width:50%;">
+            <button type="submit" class="btn btn-default">Pesquisar</button>
+        </div>
+    </form>
+</div>
+<hr />
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cd_Resp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nm_Resp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.No_CpfResp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cep_End)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nm_EmailResp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.No_TelResp)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cd_Resp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nm_Resp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.No_CpfResp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cep_End)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nm_EmailResp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.No_TelResp)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Editar", new { id = item.Cd_Resp }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Cd_Resp }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Excluir", "Excluir", new { id = item.Cd_Resp, idLogin = item.Cd_LoginResp }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

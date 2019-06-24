@@ -1,0 +1,103 @@
+﻿@model EscolaTCC.Models.Responsavel
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h2>Detalhes do Responsável</h2>
+
+<div class="container">
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Cd_Resp)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cd_Resp)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Nm_Resp)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nm_Resp)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Dt_NascResp)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Dt_NascResp)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.No_CpfResp)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.No_CpfResp)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.No_RgResp)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.No_RgResp)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Dig_RgResp)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Dig_RgResp)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cep_End)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cep_End)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.No_EndResp)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.No_EndResp)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Ds_CompleResp)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Ds_CompleResp)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Nm_EmailResp)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nm_EmailResp)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.No_TelResp)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.No_TelResp)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Nm_EmailRespConta)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nm_EmailRespConta)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Nm_SenhaResp)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nm_SenhaResp)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cd_LoginResp)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cd_LoginResp)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        @Html.ActionLink("Editar", "Editar", new { id = Model.Cd_Resp}, new { @class = "btn btn-success" })
+        <a asp-action="Consulta" class="btn btn-default">Voltar para lista</a>
+    </div>
+</div>

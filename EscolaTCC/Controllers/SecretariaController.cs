@@ -77,20 +77,70 @@ namespace EscolaTCC.Controllers
 
             return View(funcDal.SelectAllSecretaria());
         }
-        public IActionResult Editar()
+
+        [HttpGet]
+        public IActionResult Editar(int id)
         {
+            FuncionarioDal funcDal = new FuncionarioDal();
+
+            return View(funcDal.SelectOneSecretaria(id));
+        }
+
+        [HttpPost]
+        public IActionResult Editar(Funcionario func)
+        {
+            try
+            {
+                FuncionarioDal funcDal = new FuncionarioDal();
+                string retornoAlteracao = funcDal.AlterSecretaria(func);
+
+                if (retornoAlteracao == "Sim")
+                {
+                    //Alteração bem sucedida
+                    TempData["ResultadoAlterSecretaria"] = 1;
+                    return View();
+                }
+                else if (retornoAlteracao != "Sim")
+                {
+                    //Erro no CPF repetido ou e-mail da conta repetido
+                    TempData["ResultadoAlterSecretaria"] = 2;
+                    return View();
+                }
+                else { }
+
+            }
+            catch
+            {
+                return View();
+            }
 
             return View();
         }
 
-        public IActionResult Excluir(int id)
+        public IActionResult Excluir(int id, int idLogin)
         {
-            return View();
+            try
+            {
+                FuncionarioDal funcDal = new FuncionarioDal();
+                funcDal.DeleteFuncionario(id, idLogin);
+
+                ViewData["ExclusaoSecretaria"] = 1;
+
+                return RedirectToAction(nameof(Consulta));
+            }
+            catch
+            {
+                ViewData["ExclusaoSecretaria"] = 2;
+                return RedirectToAction(nameof(Consulta));
+            }
+
         }
 
         public IActionResult Detalhes(int id)
         {
-            return View();
+            FuncionarioDal funcDal = new FuncionarioDal();
+
+            return View(funcDal.SelectOneSecretaria(id));
         }
     }
 }

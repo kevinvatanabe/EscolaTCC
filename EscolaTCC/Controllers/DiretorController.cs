@@ -37,7 +37,7 @@ namespace EscolaTCC.Controllers
                 func.No_EndFunc = Convert.ToInt32(frm["Numero"]);
                 func.Ds_CompleFunc = Convert.ToString(frm["Comple"]);
 
-                funcCargo.No_Salario = Convert.ToInt32(frm["Salario"]);
+                funcCargo.No_Salario = Convert.ToInt64(frm["Salario"]);
                 funcCargo.dsFormacao = Convert.ToString(frm["Formacao"]);
 
                 login.NmEmail = Convert.ToString(frm["Conta"]);
@@ -97,13 +97,13 @@ namespace EscolaTCC.Controllers
                 if (retornoAlteracao == "Sim")
                 {
                     //Alteração bem sucedida
-                    ViewData["ResultadoAlterDiretor"] = 1;
+                    TempData["ResultadoAlterDiretor"] = 1;
                     return View();
                 }
                 else if (retornoAlteracao != "Sim")
                 {
                     //Erro no CPF repetido ou e-mail da conta repetido
-                    ViewData["ResultadoAlterDiretor"] = 2;
+                    TempData["ResultadoAlterDiretor"] = 2;
                     return View();
                 }
                 else { }
@@ -117,11 +117,23 @@ namespace EscolaTCC.Controllers
             return View();
         }
 
-        public IActionResult Excluir(int id)
+        public IActionResult Excluir(int id, int idLogin)
         {
-            FuncionarioDal funcDal = new FuncionarioDal();
+            try
+            {
+                FuncionarioDal funcDal = new FuncionarioDal();
+                funcDal.DeleteFuncionario(id, idLogin);
 
-            return View(funcDal.SelectOneDiretor(id));
+                ViewData["ExclusaoDiretor"] = 1;
+
+                return RedirectToAction(nameof(Consulta));
+            }
+            catch
+            {
+                ViewData["ExclusaoDiretor"] = 2;
+                return RedirectToAction(nameof(Consulta));
+            }
+
         }
 
         public IActionResult Detalhes(int id)
