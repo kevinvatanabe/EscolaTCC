@@ -77,20 +77,58 @@ namespace EscolaTCC.Controllers
             
             return View(funcDal.SelectAllDiretores());
         }
-        public IActionResult Editar()
+
+        [HttpGet]
+        public IActionResult Editar(int id)
         {
+            FuncionarioDal funcDal = new FuncionarioDal();
+
+            return View(funcDal.SelectOneDiretor(id));
+        }
+
+        [HttpPost]
+        public IActionResult Editar(Funcionario func)
+        {
+            try
+            {
+                FuncionarioDal funcDal = new FuncionarioDal();
+                string retornoAlteracao = funcDal.AlterDiretor(func);
+
+                if (retornoAlteracao == "Sim")
+                {
+                    //Alteração bem sucedida
+                    ViewData["ResultadoAlterDiretor"] = 1;
+                    return View();
+                }
+                else if (retornoAlteracao != "Sim")
+                {
+                    //Erro no CPF repetido ou e-mail da conta repetido
+                    ViewData["ResultadoAlterDiretor"] = 2;
+                    return View();
+                }
+                else { }
+
+            }
+            catch
+            {
+                return View();
+            }
 
             return View();
         }
 
         public IActionResult Excluir(int id)
         {
-            return View();
+            FuncionarioDal funcDal = new FuncionarioDal();
+
+            return View(funcDal.SelectOneDiretor(id));
         }
 
         public IActionResult Detalhes(int id)
         {
-            return View();
+            FuncionarioDal funcDal = new FuncionarioDal();
+
+            return View(funcDal.SelectOneDiretor(id));
         }
     }
 }

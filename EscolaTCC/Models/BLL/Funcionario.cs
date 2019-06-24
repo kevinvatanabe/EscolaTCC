@@ -52,10 +52,19 @@ namespace EscolaTCC.Models.BLL
         public int Cd_Cargo { get; set; }
         public string Ds_Formacao { get; set; }
 
+        //Para a tabela Login
+        [Display(Name = "E-mail da conta")]
+        [Required(ErrorMessage = "E-mail da conta deve ser informado!")]
+        public string Nm_Email { get; set; }
+
+        [Display(Name = "Senha da conta")]
+        [Required(ErrorMessage = "Senha da conta deve ser informada!")]
+        public string Nm_Senha { get; set; }
+
         // Foreign Key
         [Display(Name = "CEP")]
         [Required(ErrorMessage = "E-mail para contato deve ser informado!")]
-        public int No_CepFunc { get; set; }
+        public Int64 No_CepFunc { get; set; }
 
         
     }
