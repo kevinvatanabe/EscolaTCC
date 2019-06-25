@@ -1,26 +1,19 @@
 ﻿@model EscolaTCC.Models.Aluno
 
 @{
-    ViewData["Title"] = "Cadastro de Alunos";
+    ViewData["Title"] = "Editar";
 
     //Talvez essa lógica seja deprimente, porém é um bom desencargo de consciência.
-    int resposta = Convert.ToInt32(ViewData["ResultadoAluno"]);
+    int resposta = Convert.ToInt32(TempData["AlterAluno"]);
 
     if (resposta == 1)
     {
         <script type="text/JavaScript">
-            alert('CPF já cadastrado!');
+            alert('Atualização feita com sucesso!');
 
         </script>
     }
     else if (resposta == 2)
-    {
-        <script type="text/JavaScript">
-            alert('Cadastro feito com sucesso!');
-
-        </script>
-    }
-    else if (resposta == 3)
     {
         <script type="text/JavaScript">
             alert('Erro inesperado!');
@@ -32,13 +25,22 @@
 
     }
 }
-<h2>Index de Alunos</h2>
+
+<h2>Editar de Alunos</h2>
 <hr />
 <div style="width:100%">
     <fieldset class="well" style="display:block; margin:0 auto; width:70%;">
-        <legend>Cadastro de Alunos</legend>
-        <form asp-action="Index" style="display:block; margin:0 auto; width:70%;">
+        <legend>Edição de Alunos</legend>
+        <form asp-action="Editar" style="display:block; margin:0 auto; width:70%;">
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="form-group">
+                <label asp-for="Cd_Aluno" class="control-label"></label>
+                <input asp-for="Cd_Aluno" class="form-control" />
+                <span asp-validation-for="Cd_Aluno" class="text-danger"></span>
+            </div>
 
             <div class="form-group">
                 <label asp-for="Nm_Aluno" class="control-label"></label>
@@ -48,22 +50,25 @@
 
             <div class="form-group">
                 <label asp-for="Dt_NascAluno" class="control-label"></label>
-                <input asp-for="Dt_NascAluno" class="form-control" type="date" />
+                <input asp-for="Dt_NascAluno" type="date" class="form-control" />
                 <span asp-validation-for="Dt_NascAluno" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="No_CpfAluno" class="control-label"></label>
                 <input asp-for="No_CpfAluno" class="form-control" />
                 <span asp-validation-for="No_CpfAluno" class="text-danger"></span>
             </div>
 
-            <div class="form-inline">
+            <div class="form-group">
                 <label asp-for="No_RgAluno" class="control-label"></label>
-                <input asp-for="No_RgAluno" class="form-control" type="text"/>
+                <input asp-for="No_RgAluno" class="form-control" />
                 <span asp-validation-for="No_RgAluno" class="text-danger"></span>
+            </div>
 
+            <div class="form-group">
                 <label asp-for="Dig_RgAluno" class="control-label"></label>
-                <input asp-for="Dig_RgAluno" class="form-control" style="width:50px" />
+                <input asp-for="Dig_RgAluno" class="form-control" />
                 <span asp-validation-for="Dig_RgAluno" class="text-danger"></span>
             </div>
 
@@ -72,19 +77,16 @@
                 <input asp-for="Nm_Pai" class="form-control" />
                 <span asp-validation-for="Nm_Pai" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <label asp-for="Nm_Mae" class="control-label"></label>
                 <input asp-for="Nm_Mae" class="form-control" />
                 <span asp-validation-for="Nm_Mae" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <label asp-for="Cpf_Resp" class="control-label"></label>
                 <input asp-for="Cpf_Resp" class="form-control" />
                 <span asp-validation-for="Cpf_Resp" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <label asp-for="Cd_Turma" class="control-label"></label>
                 <input asp-for="Cd_Turma" class="form-control" />
@@ -92,14 +94,17 @@
             </div>
 
             <div class="form-group" style="text-align:center;">
-                <input type="submit" value="Cadastrar" class="btn btn-success" />
-
-                <input type="button" value="Limpar" class="btn btn-success" />
+                <input type="submit" value="Atualizar" class="btn btn-success" />
             </div>
         </form>
-            <div>
-                <a asp-controller="Home" asp-action="Index" style="margin-left:10%;">Voltar</a>
-            </div>
+        <div>
+            <a asp-action="Consulta">Voltar para lista</a>
+        </div>
     </fieldset>
 </div>
 
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

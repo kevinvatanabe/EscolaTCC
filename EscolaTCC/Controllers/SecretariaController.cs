@@ -124,13 +124,13 @@ namespace EscolaTCC.Controllers
                 FuncionarioDal funcDal = new FuncionarioDal();
                 funcDal.DeleteFuncionario(id, idLogin);
 
-                ViewData["ExclusaoSecretaria"] = 1;
+                TempData["ExclusaoSecretaria"] = 1;
 
                 return RedirectToAction(nameof(Consulta));
             }
             catch
             {
-                ViewData["ExclusaoSecretaria"] = 2;
+                TempData["ExclusaoSecretaria"] = 2;
                 return RedirectToAction(nameof(Consulta));
             }
 

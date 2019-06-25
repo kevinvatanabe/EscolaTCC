@@ -4,7 +4,7 @@
     ViewData["Title"] = "Consulta de Secretaria";
 
     //Talvez essa lógica seja deprimente, porém é um bom desencargo de consciência.
-    int resposta = Convert.ToInt32(ViewData["ExclusaoSecretaria"]);
+    int resposta = Convert.ToInt32(TempData["ExclusaoSecretaria"]);
 
     if (resposta == 1)
     {

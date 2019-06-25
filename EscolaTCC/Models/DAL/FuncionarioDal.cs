@@ -474,6 +474,8 @@ namespace EscolaTCC.Models.DAL
                                                 "DELETE FROM tblfuncionario WHERE cdFunc = " + cdFunc + ";" +
                                                 "DELETE FROM tbllogin WHERE cdLogin = " + cdLogin + ";", con.conectarBD());
             cmd.ExecuteScalar();
+            con.desconectarBD();
+
         }
     }
 }

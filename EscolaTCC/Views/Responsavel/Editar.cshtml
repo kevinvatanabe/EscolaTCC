@@ -3,33 +3,19 @@
     ViewData["Title"] = "Edição de Responsáveis";
 
     //Talvez essa lógica seja deprimente, porém é um bom desencargo de consciência.
-    int resposta = Convert.ToInt32(ViewData["AlterResponsavel"]);
+    int resposta = Convert.ToInt32(TempData["ResultadoAlterResponsavel"]);
 
     if (resposta == 1)
     {
         <script type="text/JavaScript">
-            alert('CPF já cadastrado!');
+            alert('Edição bem sucedida!');
 
         </script>
     }
     else if (resposta == 2)
     {
         <script type="text/JavaScript">
-            alert('E-mail da conta já cadastrado!');
-
-        </script>
-    }
-    else if (resposta == 3)
-    {
-        <script type="text/JavaScript">
-            alert('CEP não cadastrado!');
-
-        </script>
-    }
-    else if (resposta == 4)
-    {
-        <script type="text/JavaScript">
-            alert('Cadastro feito com sucesso!');
+            alert('E-mail da conta já cadastrado ou CPF cadastrado ou CEP não cadastrado!');
 
         </script>
     }

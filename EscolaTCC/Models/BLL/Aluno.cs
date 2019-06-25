@@ -36,7 +36,6 @@ namespace EscolaTCC.Models
         public String Nm_Mae    { get; set; }
 
         //Chave Estrangeira
-        //Associação
         [Display(Name = "CPF do Responsável")]
         [Required(ErrorMessage = "CPF do responsável deve ser informado!")]
         public Int64 Cpf_Resp  { get; set; }
@@ -45,6 +44,16 @@ namespace EscolaTCC.Models
         [Required(ErrorMessage = "Código da turma deve ser informado!")]
         public int Cd_Turma { get; set; }
 
-    
+        //Atributos de Turma
+        [Display(Name = "Nome da Turma")]
+        public string nmTurma { get; set; }
+
+        [Display(Name = "Período da Turma")]
+        public string nmTurno { get; set; }
+
+        [Display(Name = "Descrição da Turma")]
+        public string dsSerie { get; set; }
+
+
     }
 }

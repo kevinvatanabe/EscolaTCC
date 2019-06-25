@@ -138,7 +138,59 @@ namespace EscolaTCC.Models.DAL
 
         public string AlterResponsavel(Responsavel resp)
         {
+            Conexao con = new Conexao();
 
+            MySqlCommand cmd = new MySqlCommand
+
+              ("CALL sp_AlterResponsavel(" +
+              "@Cd_Login,@Cd_Resp,"+
+
+              "@CEP_End,@NO_End,@DS_Comple," +
+
+              "@NM_Resp,@NO_CPF_Resp,@NO_RG_Resp," +
+
+              "@Dig_RG_Resp,@Dt_Nasc_Resp,@NM_Email_Resp," +
+
+              "@NO_Tel_Resp," +
+
+              "@NM_Email,@Nm_Senha)", con.conectarBD());
+
+            cmd.Parameters.Add("@Cd_Login", MySqlDbType.Int32).Value = resp.Cd_LoginResp;
+            cmd.Parameters.Add("@Cd_Resp", MySqlDbType.Int32).Value = resp.Cd_Resp;
+
+            cmd.Parameters.AddWithValue("@CEP_End", MySqlDbType.Int32).Value = resp.Cep_End;
+            cmd.Parameters.AddWithValue("@NO_End", MySqlDbType.Int32).Value = resp.No_EndResp;
+            cmd.Parameters.AddWithValue("@DS_Comple", MySqlDbType.VarChar).Value = resp.Ds_CompleResp;
+            cmd.Parameters.AddWithValue("@NM_Resp", MySqlDbType.VarChar).Value = resp.Nm_Resp;
+            cmd.Parameters.AddWithValue("@NO_CPF_Resp", MySqlDbType.Int64).Value = resp.No_CpfResp;
+            cmd.Parameters.AddWithValue("@NO_RG_Resp", MySqlDbType.Int64).Value = resp.No_RgResp;
+            cmd.Parameters.AddWithValue("@Dig_RG_Resp", MySqlDbType.VarChar).Value = resp.Dig_RgResp;
+            cmd.Parameters.AddWithValue("@Dt_Nasc_Resp", MySqlDbType.Date).Value = resp.Dt_NascResp;
+            cmd.Parameters.AddWithValue("@NM_Email_Resp", MySqlDbType.VarChar).Value = resp.Nm_EmailResp;
+            cmd.Parameters.AddWithValue("@NO_Tel_Resp", MySqlDbType.Int64).Value = resp.No_TelResp;
+
+            cmd.Parameters.Add("@Nm_Email", MySqlDbType.VarChar).Value = resp.Nm_EmailResp;
+            cmd.Parameters.Add("@Nm_Senha", MySqlDbType.VarChar).Value = resp.Nm_SenhaResp;
+
+            string sucesso = Convert.ToString(cmd.ExecuteScalar());
+
+            con.desconectarBD();
+
+            return sucesso;
+        }
+
+        //Talvez dê erro se este já estiver cadastrado com um filho
+        public void DeleteResponsavel(int cdResp, int cdLogin)
+        {
+            Conexao con = new Conexao();
+
+            MySqlCommand cmd = new MySqlCommand
+            ("DELETE FROM tblResponsavel WHERE cdResp = " + cdResp + ";" +
+             "DELETE FROM tbllogin WHERE cdLogin = " + cdLogin + ";", con.conectarBD());
+
+            cmd.ExecuteScalar();
+
+            con.desconectarBD();
         }
     }
 }

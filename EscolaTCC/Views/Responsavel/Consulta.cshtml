@@ -2,6 +2,25 @@
 
 @{
     ViewData["Title"] = "Consulta";
+
+    //Talvez essa lógica seja deprimente, porém é um bom desencargo de consciência.
+    int resposta = Convert.ToInt32(TempData["ExclusaoResponsavel"]);
+
+    if (resposta == 1)
+    {
+        <script type="text/JavaScript">
+            alert('Exclusão feita com sucesso!');
+
+        </script>
+    }
+    else if (resposta == 2)
+    {
+        <script type="text/JavaScript">
+            alert('Erro na exclusão!');
+
+        </script>
+    }
+    else { }
 }
 
 <h2>Consulta de Responsáveis</h2>
@@ -47,31 +66,31 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cd_Resp)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nm_Resp)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.No_CpfResp)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cep_End)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nm_EmailResp)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.No_TelResp)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Editar", new { id = item.Cd_Resp }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Cd_Resp }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Excluir", "Excluir", new { id = item.Cd_Resp, idLogin = item.Cd_LoginResp }, new { @class = "btn btn-danger" })
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cd_Resp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nm_Resp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.No_CpfResp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cep_End)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nm_EmailResp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.No_TelResp)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Editar", new { id = item.Cd_Resp }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Cd_Resp }, new { @class = "btn btn-default" })
+                        @Html.ActionLink("Excluir", "Excluir", new { id = item.Cd_Resp, idLogin = item.Cd_LoginResp }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
             }
         </tbody>
     </table>

@@ -97,13 +97,13 @@ namespace EscolaTCC.Controllers
                 if (retornoAlteracao == "Sim")
                 {
                     //Alteração bem sucedida
-                    TempData["ResultadoAlterDiretor"] = 1;
+                    TempData["AlterAluno"] = 1;
                     return View();
                 }
                 else if (retornoAlteracao != "Sim")
                 {
                     //Erro no CPF repetido ou e-mail da conta repetido
-                    TempData["ResultadoAlterDiretor"] = 2;
+                    TempData["AlterAluno"] = 2;
                     return View();
                 }
                 else { }
@@ -124,13 +124,13 @@ namespace EscolaTCC.Controllers
                 FuncionarioDal funcDal = new FuncionarioDal();
                 funcDal.DeleteFuncionario(id, idLogin);
 
-                ViewData["ExclusaoDiretor"] = 1;
+                TempData["ExclusaoDiretor"] = 1;
 
                 return RedirectToAction(nameof(Consulta));
             }
             catch
             {
-                ViewData["ExclusaoDiretor"] = 2;
+                TempData["ExclusaoDiretor"] = 2;
                 return RedirectToAction(nameof(Consulta));
             }
 

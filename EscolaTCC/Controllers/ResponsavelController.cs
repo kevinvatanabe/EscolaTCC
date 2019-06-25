@@ -97,6 +97,7 @@ namespace EscolaTCC.Controllers
             }
             catch
             {
+                TempData["ResultadoAlterResponsavel"] = 2;
                 return View();
             }
             
@@ -107,18 +108,18 @@ namespace EscolaTCC.Controllers
         {
             try
             {
-                ResponsavelDal funcDal = new ResponsavelDal();
-                /*
-                funcDal.DeleteFuncionario(id, idLogin);
+                ResponsavelDal respDal = new ResponsavelDal();
 
-                ViewData["ExclusaoDiretor"] = 1;
-                */
+                respDal.DeleteResponsavel(id, idLogin);
+
+                TempData["ExclusaoResponsavel"] = 1;
+                
                 return RedirectToAction(nameof(Consulta));
             }
             catch
-            {   /*
-                ViewData["ExclusaoDiretor"] = 2;
-                */
+            {
+                TempData["ExclusaoResponsavel"] = 2;
+
                 return RedirectToAction(nameof(Consulta));
             }
 
