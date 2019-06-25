@@ -62,7 +62,9 @@
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.cdTurma }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.cdTurma }) |
+
+                       
+                        @Html.ActionLink("Details", "Index", "TurmaAluno", new { id = item.cdTurma } ) |
                         @Html.ActionLink("Delete", "Delete", new { id = item.cdTurma })
                     </td>
                 </tr>

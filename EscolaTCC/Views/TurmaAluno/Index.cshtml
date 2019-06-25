@@ -1,0 +1,70 @@
+﻿@model IEnumerable<EscolaTCC.Models.BLL.TurmaAluno>
+
+@{
+    ViewData["Title"] = "Detalhes da Turma";
+}
+
+<h2>Index de TurmaAluno</h2>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr class="info">
+                <th>
+                    @Html.DisplayNameFor(model => model.Cd_Professor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nm_Professor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nm_Materia)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Cd_Professor)</td>
+                    <td>Html.DisplayFor(modelItem => item.Nm_Professor)</td>
+                    <td>Html.DisplayFor(modelItem => item.Nm_Materia)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cd_Aluno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nm_Aluno)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cd_Aluno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nm_Aluno)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Cd_Turma }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
