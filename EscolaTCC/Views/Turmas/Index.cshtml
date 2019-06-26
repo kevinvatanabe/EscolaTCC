@@ -61,11 +61,8 @@
                         @Html.DisplayFor(modelItem => item.dsSerie)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.cdTurma }) |
-
-                       
-                        @Html.ActionLink("Details", "Index", "TurmaAluno", new { id = item.cdTurma } ) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.cdTurma })
+                        @Html.ActionLink("Editar", "Editar", new { id = item.cdTurma }, new { @class = "btn btn-success" })      
+                        @Html.ActionLink("Detalhes", "Index", "TurmaAluno", new { id = item.cdTurma, Nome = item.nmTurma,Turno = item.nmTurno, Serie = item.dsSerie }, new { @class = "btn btn-default" })
                     </td>
                 </tr>
             }

@@ -2,6 +2,8 @@
     ViewData["Title"] = "Página Inicial";
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap" rel="stylesheet">
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -15,6 +17,7 @@
         });
     });</script>
 <style>
+
 
 
     .fa {
@@ -35,6 +38,11 @@
         border-radius: 50%;
     }
 
+    .p {
+        color: black;
+        font-size: 20px;
+    }
+
     .fa-twitter {
         background: #55ACEE;
         color: white;
@@ -52,11 +60,11 @@
     }
 
     .contatin {
-        font-family: 'Global Serif';
-        text-align: center;
+        /*font-family: 'PT Serif', serif;*/
+        text-align: justify;
         font-size: 20pt;
         color: black;
-        margin-bottom: 2px;
+        margin-bottom: 1px;
     }
 
 
@@ -66,23 +74,31 @@
     }
 
     .bg-3 {
-        background-color: #ffffff; /* White */
+        background: linear-gradient(45deg, white 50%, #f799bc 50%);
         color: #555555;
+        background-color:
     }
 
     .bg-1 {
-        background-color: #1abc9c; /* Green */
-        color: #ffffff;
+        background-color: lightcyan; /* Green */
+        color: black;
     }
 
     #teste1 {
-        background-color: aqua;
+        background: linear-gradient(45deg, #91e8f7 50%, white 50%);
         letter-spacing: 2px;
     }
 
 
     .margin {
         margin-bottom: 45px;
+    }
+
+    .teste2 {
+        margin-bottom: 45px;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 70px;
+        color: black;
     }
 
     .glyphicon-leaf {
@@ -128,7 +144,6 @@
             height: 850px;
         }
 </style>
-
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
@@ -185,40 +200,38 @@
 </div>
 <!-- Container (Quem Somos Nós) -->
 <div class="container-fluid bg-1 text-center">
-    <h3 class="margin">Quem Somos Nós?</h3>
-    <h1>
+    <h3 class="teste2">Quem Somos Nós?</h3>
+    <h1 class="bg-1">
         No ano de 2006 um jovem casal, Tiago Campos Batista e sua esposa Dilma S. Campos Batista, começaram a desenvolver um trabalho social nas comunidades carentes de Carapicuíba, realizando a assistência social para famílias de alta vulnerabilidade social que participavam de uma comunidade cristã na qual eram membros, promovendo a orientação familiar, recolocação no mercado de trabalho, apoio com cestas básicas, encaminhamento para psicólogos, clinicas para dependentes químicos e orientação religiosa.
     </h1>
-
 </div>
-
 <!-- Container (Galeria) -->
 <div class="container-fluid bg-3 text-center">
-    <h3 class="margin">Galeria de Fotos</h3><br>
+    <h3 class="teste2">Galeria de Fotos</h3><br>
     <div class="row">
         <div class="col-sm-4">
-            <p>Dia de visita ao circo com as crianças do instituto restauração social.</p>
-            <img src="~/images/circo.jpeg" class="img-responsive margin" style="width:100%" alt="Image">
+            <p class="p">Dia de visita ao circo com as crianças do instituto restauração social. Gloria a Deus</p>
+            <img src="~/images/circo.jpg" class="img-responsive margin" style="width:100%" alt="Image">
         </div>
         <div class="col-sm-4">
-            <p>Evento Beneficente, elaborado para arrecadar verba para sd crianças do instituto restauração social.</p>
-            <img src="~/images/evento.jpeg" class="img-responsive margin" style="width:100%" alt="Image">
+            <p class="p">Evento Beneficente, elaborado para arrecadar verba para as crianças do instituto.</p>
+            <img src="~/images/evento.jpg" class="img-responsive margin" style="width:100%" alt="Image">
         </div>
         <div class="col-sm-4">
-            <p>Festa para comerorar o dia das crianças, compareça e prestigie nossas crianças.</p>
-            <img src="~/images/festa.jpeg" class="img-responsive margin" style="width:100%" alt="Image">
+            <p class="p">Festa para comerorar o dia das crianças, compareça e prestigie nossas crianças.</p>
+            <img src="~/images/festa.jpg" class="img-responsive margin" style="width:100%" alt="Image">
         </div>
         <div class="col-sm-4">
-            <p>Lugar de criança não é trabalhando, a increva em nossa ONG.</p>
-            <img src="~/images/trabalho.jpeg" class="img-responsive margin" style="width:100%" alt="Image">
+            <p class="p">Lugar de criança não é trabalhando, a increva em nossa ONG.</p>
+            <img src="~/images/trabalho.jpg" class="img-responsive margin" style="width:100%" alt="Image">
         </div>
         <div class="col-sm-4">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <img src="~/images/João.jpeg" class="img-responsive margin" style="width:100%" alt="Image">
+            <p class="p">Inscreva seu filho em nossa ONG para que ele pratique esportes.</p>
+            <img src="~/images/esporte.jpg" class="img-responsive margin" style="width:100%" alt="Image">
         </div>
         <div class="col-sm-4">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <img src="~/images/João.jpeg" class="img-responsive margin" style="width:100%" alt="Image">
+            <p class="p">Parabéns ao time de futebol sub 14 que acabou de conquistar sua 1° medalha.</p>
+            <img src="~/images/sub14.jpg" class="img-responsive margin" style="width:640px" height="640px" alt="Image">
         </div>
     </div>
 </div>
@@ -229,7 +242,7 @@
             <div class="col-lg-4">
                 <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                     <div class="features-icons-icon d-flex">
-                        <i class="icon-screen-desktop m-auto text-primary"></i>
+                        <i class="fa fa-handshake-o"></i>
                     </div>
                     <h3>Missão</h3>
                     <p class="contatin">
@@ -240,19 +253,21 @@
             <div class="col-lg-4">
                 <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                     <div class="features-icons-icon d-flex">
-                        <i class="icon-layers m-auto text-primary"></i>
+                        <i class="fa fa-leaf"></i>
                     </div>
                     <h3>Visão</h3>
-                    <p class="contatin"> Nossa visão é proporcionar as crianças e adolescentes da comunidade, oportunidades concriando estratégias para inclusão social que correspondem as suas necessidades e inseri-los na sociedade formando cidadãos participativos e atuantes.</p>
+                    <p class="contatin"> Nossa visão é proporcionar as crianças e adolescentes da comunidade, oportunidades criando estratégias para inclusão social, e inseri-los na sociedade formando cidadãos participativos e atuantes.</p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="features-icons-item mx-auto mb-0 mb-lg-3">
                     <div class="features-icons-icon d-flex">
-                        <i class="icon-check m-auto text-primary"></i>
+                        <i class="fa fa-star"></i>
                     </div>
                     <h3>Valores</h3>
-                    <p class="contatin">Ready to use with your own content, or customize the source files!</p>
+                    <p class="contatin">
+                        Temos como valores manter a integridade das crinanças, para que ela possam curtir a época mais produtiva de sua vidas com dignidade.
+                    </p>
                 </div>
             </div>
         </div>

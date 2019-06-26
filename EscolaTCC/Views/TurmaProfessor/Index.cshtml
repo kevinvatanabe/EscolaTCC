@@ -1,0 +1,67 @@
+﻿@model IEnumerable<EscolaTCC.Models.BLL.TurmaProfessor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Contador)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cd_Aluno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nm_Aluno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nm_Professor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nm_Materia)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contador)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cd_Aluno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nm_Aluno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cd_Func)
+                    </td>
+                     
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nm_Professor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nm_Materia)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

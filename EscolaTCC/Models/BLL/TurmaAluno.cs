@@ -16,19 +16,28 @@ namespace EscolaTCC.Models.BLL
 
         public string Ds_Serie { get; set; }
 
-        [Display(Name = "Código do Professor")]
-        public int Cd_Professor { get; set; }
 
-        [Display(Name = "Professor")]
-        public int Nm_Professor { get; set; }
-
-        [Display(Name = "Matéria")]
-        public string Nm_Materia { get; set; }
 
         [Display(Name = "Código do Aluno")]
         public int Cd_Aluno { get; set; }
 
         [Display(Name = "Nome do Aluno")]
         public string Nm_Aluno { get; set; }
+
+        //Informações de Professor Matéria
+        [Display(Name = "CPF do Professor")]
+        public Int64 Cpf_Prof { get; set; }
+
+        [Display(Name = "Código do Professor")]
+        public int Cd_MatProf { get; set; }
+
+        [Display(Name = "Código do Professor")]
+        public string Cd_Professor { get; set; }
+
+        [Display(Name = "Professor")]
+        public string Nm_Professor { get; set; }
+
+        [Display(Name = "Matéria")]
+        public string Nm_Materia { get; set; }
     }
 }
